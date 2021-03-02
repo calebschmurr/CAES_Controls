@@ -1,0 +1,17 @@
+//VoltageSensor.h
+//Handle voltage sensor.
+
+
+class VoltageSensor {
+private:
+    int pin;
+    int baseVal;
+    //TODO: Verify the value of the multiplier.
+    //TODO: Verify that values are consistent across different runs
+    //Not necessarily accurate rn
+    float multiplier = 0.0248868;
+
+public:
+    VoltageSensor(const int pinVal);
+    float getValue();
+}
