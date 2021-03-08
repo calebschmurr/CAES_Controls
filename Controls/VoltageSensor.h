@@ -1,8 +1,9 @@
 //VoltageSensor.h
 //Handle voltage sensor.
 
+#include "sensor.h"
 
-class VoltageSensor {
+class VoltageSensor: public Sensor {
 private:
     int pin;
     int baseVal;

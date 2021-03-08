@@ -2,6 +2,7 @@
 //Handle current CurrentSensor
 //Caleb Schmurr
 //2-26-21
+#include "sensor.h"
 
 class CurrentSensor: public Sensor {
 private:
