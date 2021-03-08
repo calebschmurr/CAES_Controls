@@ -8,9 +8,11 @@
 class SSRelay {
 private:
     int pin;
+    bool state;
     // TODO: position tracking and/or ?fully_open
 
 public:
-    Valve(const int pinVal);
-    int MoveIncrement(int i);
+    SSRelay(const int pinVal);
+    int SetState(bool stateVal);
+    bool GetState();
 };
