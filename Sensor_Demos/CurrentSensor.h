@@ -3,7 +3,7 @@
 //Caleb Schmurr
 //2-26-21
 
-class CurrentSensor {
+class CurrentSensor: public Sensor {
 private:
     int pin;
     //TODO: Determine multiplier.

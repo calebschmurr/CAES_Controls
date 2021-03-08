@@ -8,5 +8,4 @@ CurrentSensor::CurrentSensor(const int pinVal){
 
 float CurrentSensor::getValue(){
     return analogRead(pin)*multiplier;
-
 }
