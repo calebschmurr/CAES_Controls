@@ -3,16 +3,19 @@
 *
 *
 */
+
+#include <Arduino.h>
 #include "CurrentSensor.h"
 #include "VoltageSensor.h"
 #include "log.h"
 #include "Valve.h"
 #include "SSRelay.h"
-
+#include "Thread.h"
 
 Valve v;
 Log l;
 SSRelay ssr;
+
 
 
 void setup(){
