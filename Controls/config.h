@@ -1,5 +1,6 @@
 /*
  * Config.h - hold all the parameters we are looking to modify
+ * This will take the place of a settings file.
  * 
  * 
 */
