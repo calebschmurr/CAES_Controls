@@ -14,4 +14,4 @@ public:
     PressureSensor(const int pinVal);
     float getValue();
 
-}
+};

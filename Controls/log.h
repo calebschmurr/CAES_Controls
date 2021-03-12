@@ -1,6 +1,6 @@
 //Log.h
 //Handle log requests
-#include <string>
+#include <string.h>
 
 class Log {
 private:
