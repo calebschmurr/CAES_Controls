@@ -16,7 +16,11 @@
 
 // External classes
 #include <Arduino.h>
-#include "Thread.h"
+//#include "Thread.h" //We should use TimedAction.h instead.
+
+#include <TimedAction.h> //Use this instead of Thread.h - easier to understand.
+
+
 
 // Declare and initialize variables
 
@@ -26,6 +30,28 @@ SSRelay ssRelay1(2);
 CurrentSensor iSensor(3);
 VoltageSensor vSensor(4);
 PressureSensor pSensor(5);
+
+
+//https://create.arduino.cc/projecthub/reanimationxp/how-to-multithread-an-arduino-protothreading-tutorial-dd2c37
+
+//Control loop for SSR
+void SSR_Loop(){
+    //Control when the compressor turns on and off.
+    //Vary time on depending on desired pressure in tank.
+
+}
+
+//Control loop for Valve.
+void Valve_Control_Loop(){
+
+
+
+}
+
+
+TimedAction ssrThread = TimedAction(200, SSR_Loop);
+TimedAction valveThread = TimedAction(200, Valve_Control_Loop);
+
 
 
 void setup() {
@@ -45,4 +71,7 @@ void setup() {
 void loop() {
     // Check and log sensor values
     // Send messages to threads with mutex or some kind of interprocess communication
+    ssrThread.check();
+    valveThread.check();
+
 }

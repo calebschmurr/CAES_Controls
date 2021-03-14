@@ -14,5 +14,5 @@ private:
 public:
     CurrentSensor(const int pinVal);
     float getValue();
-
+    
 };

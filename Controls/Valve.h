@@ -5,7 +5,7 @@
 * 3/8/21
 */
 
-class Valve {install arduino ubuntu system
+class Valve {
 private:
     int pin;
     // TODO: position tracking and/or ?fully_open

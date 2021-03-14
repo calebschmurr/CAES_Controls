@@ -15,8 +15,6 @@ int Log::WriteToLog(const string msg){
     return 0;
 }
 
-
 bool Log::closeLog(){
     Serial.end()
-
 }
