@@ -2,7 +2,6 @@
 * A class for controlling the Solid State Relay
 * that turns the compressor off and on
 * Calvin 2021 Senior Design Team 11
-* 3/8/21
 */
 
 class SSRelay {

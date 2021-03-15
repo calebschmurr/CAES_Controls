@@ -1,7 +1,7 @@
-/*
-*  Main.c - Main arduino file.
-*
-*
+/* Main.cpp
+* The main code that executes when the
+* Arduino boots up
+* Calvin 2021 Senior Design Team 11
 */
 
 
@@ -15,15 +15,11 @@
 #include "config.h"
 
 // External classes
-#include <Arduino.h>
-//#include "Thread.h" //We should use TimedAction.h instead.
-
-#include <TimedAction.h> //Use this instead of Thread.h - easier to understand.
-
+#include <Arduino.h> // Arduino Library
+//#include <TimedAction.h> // Threading Library
 
 
 // Declare and initialize variables
-
 Valve valve1(1);
 Log logFile;
 SSRelay ssRelay1(2);

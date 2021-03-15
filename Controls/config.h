@@ -1,8 +1,6 @@
-/*
- * Config.h - hold all the parameters we are looking to modify
+/* Config.h 
+ * A class containing configuration values for main.cpp
  * This will take the place of a settings file.
- * 
- * 
 */
 
 
