@@ -1,4 +1,7 @@
-
+/* PressureSensor.h
+* A class for reading from a pressure sensor
+* Calvin 2021 Senior Design Team 11
+*/
 
 #include "sensor.h"
 

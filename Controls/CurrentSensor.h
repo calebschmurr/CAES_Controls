@@ -1,9 +1,9 @@
-//CurrentSensor.h
-//Handle current CurrentSensor
-//Caleb Schmurr
-//2-26-21
+/* CurrentSensor.h
+* A class for reading from a current sensor
+* Calvin 2021 Senior Design Team 11
+*/
+
 #include "sensor.h"
-#include <Arduino.h>
 
 class CurrentSensor: public Sensor {
 private:

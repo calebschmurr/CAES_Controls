@@ -1,5 +1,7 @@
-//VoltageSensor.h
-//Handle voltage sensor.
+/* VoltageSensor.h
+* A class for reading from a voltage sensor
+* Calvin 2021 Senior Design Team 11
+*/
 
 #include "sensor.h"
 

@@ -1,7 +1,7 @@
-/*
-*  Main.c - Main arduino file.
-*
-*
+/* Main.cpp
+* The main code that executes when the
+* Arduino boots up
+* Calvin 2021 Senior Design Team 11
 */
 
 
@@ -15,15 +15,11 @@
 #include "config.h"
 
 // External classes
-#include <Arduino.h>
-//#include "Thread.h" //We should use TimedAction.h instead.
-
-#include <TimedAction.h> //Use this instead of Thread.h - easier to understand.
-
+#include <Arduino.h> // Arduino Library
+//#include <TimedAction.h> // Threading Library
 
 
 // Declare and initialize variables
-
 Valve valve1(1);
 Log logFile;
 SSRelay ssRelay1(2);
@@ -34,23 +30,9 @@ PressureSensor pSensor(5);
 
 //https://create.arduino.cc/projecthub/reanimationxp/how-to-multithread-an-arduino-protothreading-tutorial-dd2c37
 
-//Control loop for SSR
-void SSR_Loop(){
-    //Control when the compressor turns on and off.
-    //Vary time on depending on desired pressure in tank.
-
-}
-
-//Control loop for Valve.
-void Valve_Control_Loop(){
-
-
-
-}
-
-
-TimedAction ssrThread = TimedAction(200, SSR_Loop);
-TimedAction valveThread = TimedAction(200, Valve_Control_Loop);
+// Threading stuff commented out for now
+//TimedAction ssrThread = TimedAction(200, SSR_Loop);
+//TimedAction valveThread = TimedAction(200, Valve_Control_Loop);
 
 
 

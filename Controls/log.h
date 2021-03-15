@@ -1,5 +1,9 @@
-//Log.h
-//Handle log requests
+/* log.h
+* A class for logging important information
+* before during and after Arduino code execution
+* Calvin 2021 Senior Design Team 11
+*/
+
 #include <string.h>
 
 class Log {

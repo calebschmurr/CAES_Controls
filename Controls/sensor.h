@@ -1,5 +1,7 @@
-//Sensor class - 
-//Used to define the format for the rest of the sensors
+/* sensor.h
+* A parent class for all of the sensor classes
+* Calvin 2021 Senior Design Team 11
+*/
 
 
 class Sensor {
