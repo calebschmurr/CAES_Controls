@@ -43,6 +43,9 @@ void SSR_Loop(){
 
 //Control loop for Valve.
 void Valve_Control_Loop(){
+    
+    
+    //If Not charging && On
 
 
 

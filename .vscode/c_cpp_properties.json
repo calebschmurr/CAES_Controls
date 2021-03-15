@@ -5,7 +5,7 @@
             "includePath": [
                 "D:\\Programs\\Arduino\\tools\\**",
                 "D:\\Programs\\Arduino\\hardware\\arduino\\avr\\**",
-                "~/Downloads/arduino-1.18.3-linux64/arduino-1.18.3"
+                "~/Downloads/arduino-1.18.3-linux64/arduino-1.18.3/tools/"
             ],
             "forcedInclude": [
                 "D:\\Programs\\Arduino\\hardware\\arduino\\avr\\cores\\arduino\\Arduino.h"
