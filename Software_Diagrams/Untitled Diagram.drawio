@@ -1,9 +1,25 @@
-<mxfile host="app.diagrams.net" modified="2021-03-17T16:20:42.950Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36" etag="poCoqRcb5v-Se5zgnNji" version="14.4.8" type="github">
-  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
+<mxfile host="app.diagrams.net" modified="2021-03-17T16:46:44.817Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36" etag="FYC31_n6MCHpm2kIHFLX" version="14.4.8" type="github" pages="3">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Charge_Flowchart">
     <mxGraphModel dx="1350" dy="806" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="UqUjr6d4yJ0R06ru2xfZ" name="Discharge_Flowchart">
+    <mxGraphModel dx="1350" dy="806" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="x9szZuRcZGR7NU5_jWyl-0" />
+        <mxCell id="x9szZuRcZGR7NU5_jWyl-1" parent="x9szZuRcZGR7NU5_jWyl-0" />
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="72QfJe5bYpR5y07a5OMH" name="Main_Loop_Flowchart">
+    <mxGraphModel dx="1350" dy="806" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="CWvUaUW_ndaUqIzaeWzM-0" />
+        <mxCell id="CWvUaUW_ndaUqIzaeWzM-1" parent="CWvUaUW_ndaUqIzaeWzM-0" />
       </root>
     </mxGraphModel>
   </diagram>
