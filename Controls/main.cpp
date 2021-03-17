@@ -30,26 +30,6 @@ PressureSensor pSensor(5);
 
 //https://create.arduino.cc/projecthub/reanimationxp/how-to-multithread-an-arduino-protothreading-tutorial-dd2c37
 
-//Control loop for SSR
-void SSR_Loop(){
-    //Control when the compressor turns on and off.
-    //Vary time on depending on desired pressure in tank.
-
-}
-
-//Control loop for Valve.
-void Valve_Control_Loop(){
-    
-    
-    //If Not charging && On
-
-
-
-}
-
-
-TimedAction ssrThread = TimedAction(200, SSR_Loop);
-TimedAction valveThread = TimedAction(200, Valve_Control_Loop);
 
 
 
@@ -64,13 +44,12 @@ void setup() {
     vSensor.initialize();
     pSensor.initialize();
     
-    // Start a bunch of threads
 }
 
 void loop() {
     // Check and log sensor values
     // Send messages to threads with mutex or some kind of interprocess communication
-    ssrThread.check();
-    valveThread.check();
+    
 
+    
 }
