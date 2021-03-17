@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-03-17T18:20:33.566Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36" etag="0ncUtI56MieK1DtJLRrC" version="14.4.8" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2021-03-17T19:02:42.558Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36" etag="UD2SCMnKsszwLt6CaAlU" version="14.4.9" type="github" pages="3">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Action_Class_Flowchart">
-    <mxGraphModel dx="1350" dy="806" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1221" dy="645" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -19,7 +19,7 @@
         <mxCell id="Hz21LZMQ4vUw0pX6ZqhJ-42" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Hz21LZMQ4vUw0pX6ZqhJ-20" target="Hz21LZMQ4vUw0pX6ZqhJ-41" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="Hz21LZMQ4vUw0pX6ZqhJ-20" value="If State==Charging" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="Hz21LZMQ4vUw0pX6ZqhJ-20" value="If State == Charging" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="70" y="330" width="150" height="120" as="geometry" />
         </mxCell>
         <mxCell id="Hz21LZMQ4vUw0pX6ZqhJ-37" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Hz21LZMQ4vUw0pX6ZqhJ-25" target="Hz21LZMQ4vUw0pX6ZqhJ-27" edge="1">
@@ -28,13 +28,13 @@
         <mxCell id="Hz21LZMQ4vUw0pX6ZqhJ-38" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Hz21LZMQ4vUw0pX6ZqhJ-25" target="Hz21LZMQ4vUw0pX6ZqhJ-20" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="Hz21LZMQ4vUw0pX6ZqhJ-25" value="If State==Discharging" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="Hz21LZMQ4vUw0pX6ZqhJ-25" value="If State ==&lt;br&gt;Discharging" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="80" y="150" width="130" height="110" as="geometry" />
         </mxCell>
         <mxCell id="ytOCcAaxQ1JO5uOS0aCN-49" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Hz21LZMQ4vUw0pX6ZqhJ-27" target="ytOCcAaxQ1JO5uOS0aCN-48" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="Hz21LZMQ4vUw0pX6ZqhJ-27" value="Stop_Discharging" style="whiteSpace=wrap;html=1;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="Hz21LZMQ4vUw0pX6ZqhJ-27" value="Stop_Discharging()" style="whiteSpace=wrap;html=1;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="284" y="175" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="Hz21LZMQ4vUw0pX6ZqhJ-44" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Hz21LZMQ4vUw0pX6ZqhJ-39" target="Hz21LZMQ4vUw0pX6ZqhJ-43" edge="1">
@@ -44,7 +44,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="Hz21LZMQ4vUw0pX6ZqhJ-39" value="If Pressure &amp;lt; Max_Pressure" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="294" y="340" width="100" height="100" as="geometry" />
+          <mxGeometry x="280" y="340" width="120" height="100" as="geometry" />
         </mxCell>
         <mxCell id="ytOCcAaxQ1JO5uOS0aCN-61" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Hz21LZMQ4vUw0pX6ZqhJ-41" target="ytOCcAaxQ1JO5uOS0aCN-57" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -53,12 +53,12 @@
           <mxGeometry x="65" y="537.5" width="160" height="125" as="geometry" />
         </mxCell>
         <mxCell id="Hz21LZMQ4vUw0pX6ZqhJ-43" value="End Loop" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="500" y="360" width="100" height="60" as="geometry" />
+          <mxGeometry x="750" y="360" width="100" height="60" as="geometry" />
         </mxCell>
         <mxCell id="Hz21LZMQ4vUw0pX6ZqhJ-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Hz21LZMQ4vUw0pX6ZqhJ-47" target="Hz21LZMQ4vUw0pX6ZqhJ-43" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="Hz21LZMQ4vUw0pX6ZqhJ-47" value="Stop_Charging" style="whiteSpace=wrap;html=1;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="Hz21LZMQ4vUw0pX6ZqhJ-47" value="Stop_Charging()" style="whiteSpace=wrap;html=1;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="380" y="470" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="ytOCcAaxQ1JO5uOS0aCN-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ytOCcAaxQ1JO5uOS0aCN-1" target="ytOCcAaxQ1JO5uOS0aCN-2" edge="1">
@@ -94,7 +94,7 @@
         <mxCell id="ytOCcAaxQ1JO5uOS0aCN-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ytOCcAaxQ1JO5uOS0aCN-10" target="ytOCcAaxQ1JO5uOS0aCN-12" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="ytOCcAaxQ1JO5uOS0aCN-10" value="State=Off;" style="whiteSpace=wrap;html=1;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="ytOCcAaxQ1JO5uOS0aCN-10" value="State = Off" style="whiteSpace=wrap;html=1;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="70" y="1400" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="ytOCcAaxQ1JO5uOS0aCN-12" value="End Loop" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
@@ -109,7 +109,7 @@
         <mxCell id="ytOCcAaxQ1JO5uOS0aCN-44" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ytOCcAaxQ1JO5uOS0aCN-15" target="ytOCcAaxQ1JO5uOS0aCN-43" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="ytOCcAaxQ1JO5uOS0aCN-15" value="Valve1.Close()" style="whiteSpace=wrap;html=1;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="ytOCcAaxQ1JO5uOS0aCN-15" value="Valve.Close()" style="whiteSpace=wrap;html=1;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="350" y="1070" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="ytOCcAaxQ1JO5uOS0aCN-17" value="End Loop" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
@@ -145,7 +145,7 @@
         <mxCell id="ytOCcAaxQ1JO5uOS0aCN-32" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ytOCcAaxQ1JO5uOS0aCN-29" target="ytOCcAaxQ1JO5uOS0aCN-31" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="ytOCcAaxQ1JO5uOS0aCN-29" value="State=Charging;" style="whiteSpace=wrap;html=1;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="ytOCcAaxQ1JO5uOS0aCN-29" value="State = Charging" style="whiteSpace=wrap;html=1;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="530" y="1400" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="ytOCcAaxQ1JO5uOS0aCN-31" value="End Loop" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
@@ -158,27 +158,27 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="ytOCcAaxQ1JO5uOS0aCN-35" value="Start_Discharging()" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_2;whiteSpace=wrap;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="820" y="900" width="120" height="100" as="geometry" />
+          <mxGeometry x="790" y="900" width="120" height="100" as="geometry" />
         </mxCell>
         <mxCell id="ytOCcAaxQ1JO5uOS0aCN-39" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ytOCcAaxQ1JO5uOS0aCN-36" target="ytOCcAaxQ1JO5uOS0aCN-38" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="ytOCcAaxQ1JO5uOS0aCN-36" value="Valve1.Open(x_amt)" style="whiteSpace=wrap;html=1;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="820" y="1050" width="120" height="60" as="geometry" />
+        <mxCell id="ytOCcAaxQ1JO5uOS0aCN-36" value="Valve.Open()" style="whiteSpace=wrap;html=1;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="790" y="1050" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="ytOCcAaxQ1JO5uOS0aCN-41" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ytOCcAaxQ1JO5uOS0aCN-38" target="ytOCcAaxQ1JO5uOS0aCN-40" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="ytOCcAaxQ1JO5uOS0aCN-38" value="State=Discharging;" style="whiteSpace=wrap;html=1;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="820" y="1150" width="120" height="60" as="geometry" />
+        <mxCell id="ytOCcAaxQ1JO5uOS0aCN-38" value="State = Discharging" style="whiteSpace=wrap;html=1;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="790" y="1150" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="ytOCcAaxQ1JO5uOS0aCN-40" value="End Loop" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="830" y="1240" width="100" height="60" as="geometry" />
+          <mxGeometry x="800" y="1240" width="100" height="60" as="geometry" />
         </mxCell>
         <mxCell id="ytOCcAaxQ1JO5uOS0aCN-45" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ytOCcAaxQ1JO5uOS0aCN-43" target="ytOCcAaxQ1JO5uOS0aCN-17" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="ytOCcAaxQ1JO5uOS0aCN-43" value="State=Off;" style="whiteSpace=wrap;html=1;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="ytOCcAaxQ1JO5uOS0aCN-43" value="State = Off" style="whiteSpace=wrap;html=1;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="350" y="1200" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="ytOCcAaxQ1JO5uOS0aCN-52" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ytOCcAaxQ1JO5uOS0aCN-48" target="ytOCcAaxQ1JO5uOS0aCN-51" edge="1">
@@ -188,16 +188,16 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="ytOCcAaxQ1JO5uOS0aCN-48" value="If Pressure &amp;lt; Max_Pressure" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="450" y="155" width="100" height="100" as="geometry" />
+          <mxGeometry x="440" y="155" width="120" height="100" as="geometry" />
         </mxCell>
         <mxCell id="ytOCcAaxQ1JO5uOS0aCN-50" value="End Loop" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="740" y="175" width="100" height="60" as="geometry" />
+          <mxGeometry x="750" y="175" width="100" height="60" as="geometry" />
         </mxCell>
         <mxCell id="ytOCcAaxQ1JO5uOS0aCN-53" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ytOCcAaxQ1JO5uOS0aCN-51" target="ytOCcAaxQ1JO5uOS0aCN-50" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="ytOCcAaxQ1JO5uOS0aCN-51" value="Start_Charging" style="whiteSpace=wrap;html=1;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="600" y="175" width="120" height="60" as="geometry" />
+        <mxCell id="ytOCcAaxQ1JO5uOS0aCN-51" value="Start_Charging()" style="whiteSpace=wrap;html=1;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="610" y="175" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="ytOCcAaxQ1JO5uOS0aCN-55" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ytOCcAaxQ1JO5uOS0aCN-57" target="ytOCcAaxQ1JO5uOS0aCN-60" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -206,16 +206,16 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="ytOCcAaxQ1JO5uOS0aCN-57" value="If Pressure &amp;lt; Max_Pressure" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="305" y="550" width="100" height="100" as="geometry" />
+          <mxGeometry x="280" y="550" width="120" height="100" as="geometry" />
         </mxCell>
         <mxCell id="ytOCcAaxQ1JO5uOS0aCN-58" value="End Loop" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="595" y="570" width="100" height="60" as="geometry" />
+          <mxGeometry x="750" y="570" width="100" height="60" as="geometry" />
         </mxCell>
         <mxCell id="ytOCcAaxQ1JO5uOS0aCN-59" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ytOCcAaxQ1JO5uOS0aCN-60" target="ytOCcAaxQ1JO5uOS0aCN-58" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="ytOCcAaxQ1JO5uOS0aCN-60" value="Start_Charging" style="whiteSpace=wrap;html=1;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="455" y="570" width="120" height="60" as="geometry" />
+        <mxCell id="ytOCcAaxQ1JO5uOS0aCN-60" value="Start_Charging()" style="whiteSpace=wrap;html=1;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="470" y="570" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="ytOCcAaxQ1JO5uOS0aCN-62" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ytOCcAaxQ1JO5uOS0aCN-63" target="ytOCcAaxQ1JO5uOS0aCN-67" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -229,7 +229,7 @@
         <mxCell id="ytOCcAaxQ1JO5uOS0aCN-82" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ytOCcAaxQ1JO5uOS0aCN-65" target="ytOCcAaxQ1JO5uOS0aCN-81" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="ytOCcAaxQ1JO5uOS0aCN-65" value="If State==Charging" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="ytOCcAaxQ1JO5uOS0aCN-65" value="If State == Charging" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="935" y="530" width="150" height="120" as="geometry" />
         </mxCell>
         <mxCell id="ytOCcAaxQ1JO5uOS0aCN-66" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ytOCcAaxQ1JO5uOS0aCN-67" target="ytOCcAaxQ1JO5uOS0aCN-65" edge="1">
@@ -238,7 +238,7 @@
         <mxCell id="ytOCcAaxQ1JO5uOS0aCN-70" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ytOCcAaxQ1JO5uOS0aCN-67" target="ytOCcAaxQ1JO5uOS0aCN-69" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="ytOCcAaxQ1JO5uOS0aCN-67" value="If State==Discharging" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="ytOCcAaxQ1JO5uOS0aCN-67" value="If State ==&lt;br&gt;Discharging" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="945" y="150" width="130" height="110" as="geometry" />
         </mxCell>
         <mxCell id="ytOCcAaxQ1JO5uOS0aCN-87" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ytOCcAaxQ1JO5uOS0aCN-68" target="ytOCcAaxQ1JO5uOS0aCN-83" edge="1">
@@ -253,28 +253,28 @@
         <mxCell id="ytOCcAaxQ1JO5uOS0aCN-74" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ytOCcAaxQ1JO5uOS0aCN-69" target="ytOCcAaxQ1JO5uOS0aCN-73" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="ytOCcAaxQ1JO5uOS0aCN-69" value="If Voltage &amp;lt; Desired_Voltage +Threshold" style="rhombus;whiteSpace=wrap;html=1;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="ytOCcAaxQ1JO5uOS0aCN-69" value="If Voltage &amp;lt; &lt;br&gt;Desired_Voltage &lt;br&gt;+ Threshold" style="rhombus;whiteSpace=wrap;html=1;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="1150" y="147.5" width="170" height="115" as="geometry" />
         </mxCell>
         <mxCell id="ytOCcAaxQ1JO5uOS0aCN-78" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ytOCcAaxQ1JO5uOS0aCN-71" target="ytOCcAaxQ1JO5uOS0aCN-77" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="ytOCcAaxQ1JO5uOS0aCN-71" value="Valve1.Open();" style="whiteSpace=wrap;html=1;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="ytOCcAaxQ1JO5uOS0aCN-71" value="Valve.Open()" style="whiteSpace=wrap;html=1;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="1380" y="175" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="ytOCcAaxQ1JO5uOS0aCN-76" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ytOCcAaxQ1JO5uOS0aCN-73" target="ytOCcAaxQ1JO5uOS0aCN-75" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="aapkPwEdlmCurSWxCRl8-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ytOCcAaxQ1JO5uOS0aCN-73" target="aapkPwEdlmCurSWxCRl8-0">
+        <mxCell id="aapkPwEdlmCurSWxCRl8-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ytOCcAaxQ1JO5uOS0aCN-73" target="aapkPwEdlmCurSWxCRl8-0" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="ytOCcAaxQ1JO5uOS0aCN-73" value="If Voltage &amp;gt;Desired_Voltage&amp;nbsp; &amp;nbsp; &amp;nbsp; -Threshold" style="rhombus;whiteSpace=wrap;html=1;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="ytOCcAaxQ1JO5uOS0aCN-73" value="If Voltage &amp;gt;&lt;br&gt;Desired_Voltage&lt;br&gt;- Threshold" style="rhombus;whiteSpace=wrap;html=1;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="1150" y="305" width="170" height="115" as="geometry" />
         </mxCell>
         <mxCell id="ytOCcAaxQ1JO5uOS0aCN-80" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ytOCcAaxQ1JO5uOS0aCN-75" target="ytOCcAaxQ1JO5uOS0aCN-79" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="ytOCcAaxQ1JO5uOS0aCN-75" value="Valve1.Close()" style="whiteSpace=wrap;html=1;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="ytOCcAaxQ1JO5uOS0aCN-75" value="Valve.Close()" style="whiteSpace=wrap;html=1;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="1380" y="332.5" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="ytOCcAaxQ1JO5uOS0aCN-77" value="End Loop" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
@@ -298,14 +298,71 @@
         <mxCell id="ytOCcAaxQ1JO5uOS0aCN-85" value="End Loop" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="1550" y="560" width="100" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="aapkPwEdlmCurSWxCRl8-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="aapkPwEdlmCurSWxCRl8-0" target="aapkPwEdlmCurSWxCRl8-2">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="aapkPwEdlmCurSWxCRl8-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="aapkPwEdlmCurSWxCRl8-0" target="ytOCcAaxQ1JO5uOS0aCN-79" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1600" y="430" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
-        <mxCell id="aapkPwEdlmCurSWxCRl8-0" value="Valve1.Off()" style="whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="aapkPwEdlmCurSWxCRl8-0" value="Valve.Off()" style="whiteSpace=wrap;html=1;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="1175" y="440" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="aapkPwEdlmCurSWxCRl8-2" value="End Loop" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="1340" y="440" width="100" height="60" as="geometry" />
+        <mxCell id="Ss9UgSSaFRepJhV2x1od-31" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Ss9UgSSaFRepJhV2x1od-32" target="Ss9UgSSaFRepJhV2x1od-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ss9UgSSaFRepJhV2x1od-32" value="Off(&amp;amp;State)" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_2;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="975" y="900" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="Ss9UgSSaFRepJhV2x1od-33" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Ss9UgSSaFRepJhV2x1od-35" target="Ss9UgSSaFRepJhV2x1od-63">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1160" y="1280" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ss9UgSSaFRepJhV2x1od-34" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Ss9UgSSaFRepJhV2x1od-35" target="Ss9UgSSaFRepJhV2x1od-45">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ss9UgSSaFRepJhV2x1od-35" value="If State == Charging" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="950" y="1200" width="150" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="Ss9UgSSaFRepJhV2x1od-36" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Ss9UgSSaFRepJhV2x1od-38" target="Ss9UgSSaFRepJhV2x1od-40">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ss9UgSSaFRepJhV2x1od-37" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Ss9UgSSaFRepJhV2x1od-38" target="Ss9UgSSaFRepJhV2x1od-35">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ss9UgSSaFRepJhV2x1od-38" value="If State ==&lt;br&gt;Discharging" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="960" y="1040" width="130" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="Ss9UgSSaFRepJhV2x1od-39" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Ss9UgSSaFRepJhV2x1od-40" target="Ss9UgSSaFRepJhV2x1od-52">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1320" y="1095" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ss9UgSSaFRepJhV2x1od-40" value="Stop_Discharging()" style="whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1164" y="1065" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Ss9UgSSaFRepJhV2x1od-44" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Ss9UgSSaFRepJhV2x1od-45" target="Ss9UgSSaFRepJhV2x1od-58">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1160" y="1447.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ss9UgSSaFRepJhV2x1od-45" value="State == Off" style="rhombus;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="945" y="1370" width="160" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="Ss9UgSSaFRepJhV2x1od-46" value="End Loop" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1330" y="1230" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Ss9UgSSaFRepJhV2x1od-52" value="End Loop" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1330" y="1065" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Ss9UgSSaFRepJhV2x1od-58" value="End Loop" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1330" y="1402.5" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Ss9UgSSaFRepJhV2x1od-64" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Ss9UgSSaFRepJhV2x1od-63" target="Ss9UgSSaFRepJhV2x1od-46">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ss9UgSSaFRepJhV2x1od-63" value="Stop_Charging()" style="whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1164" y="1230" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
