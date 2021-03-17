@@ -3,6 +3,7 @@
  * This will take the place of a settings file.
  */
 
+enum State{Off, Charging, Discharging};
 
 #define serial_loop_time 1500 // What is this?
 
