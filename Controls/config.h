@@ -1,21 +1,19 @@
 /* Config.h 
  * A class containing configuration values for main.cpp
  * This will take the place of a settings file.
-*/
+ */
 
 
-#define serial_loop_time 1500
+#define serial_loop_time 1500 // What is this?
 
-#define desired_tank_pressure 100 //Desired tank pressure.
+#define Default_Mode 0 // 0 = manual, 1 = auto
 
-#define pressure_low_end 60 //Low end - when the tank hits this kick
+#define min_pressure_manual 60 // Minimum tank pressure in manual mode
 
-#define pressure_high_end 120 //High end - when the tank hits this when on, shutoff compressor.
+#define max_pressure_manual 120 // Maximum tank pressure in manual mode
 
-#define Min_Cycle_Off_Time 40 //Can only cycle on and off x times per 2 minutes.
+#define min_pressure_auto 60 // Minimum tank pressure in auto mode
 
-#define Min_Cycle_On_Time 20 //Minimum time compressor is in seconds.
+#define max_pressure_auto 120 // Maximum tank pressure in auto mode
 
-//If 
-#define Charge_Mode 0 //0 = Manual, 1 = Auto
-
+#define Min_Cycle_Time 20 // Can only change charging states every x seconds.
