@@ -3,18 +3,15 @@
  * This will take the place of a settings file.
  */
 
-enum State{Off, Charging, Discharging};
-
 #define serial_loop_time 1500 // What is this?
-
-#define Default_Mode 0 // 0 = manual, 1 = auto
-
+#define default_mode 0 // 0 = manual, 1 = auto // we should use an enum for this
 #define min_pressure_manual 60 // Minimum tank pressure in manual mode
-
 #define max_pressure_manual 120 // Maximum tank pressure in manual mode
-
 #define min_pressure_auto 60 // Minimum tank pressure in auto mode
-
 #define max_pressure_auto 120 // Maximum tank pressure in auto mode
-
-#define Min_Cycle_Time 20 // Can only change charging states every x seconds.
+#define min_cycle_time 20 // Can only change charging states every x seconds.
+#define solid_state_relay_pin 1 // Arduino gpio pin for the ssr
+#define valve_pin 1 // Arduino gpio pin for the motorized valve
+#define pressure_sensor_pin 2 // Arduino gpio pin for the pressure sensor
+#define voltage_sensor_pin 3 // Arduino gpio pin for the voltage sensor
+#define current_sensor_pin 4 // Arduino gpio pin for the current sensor

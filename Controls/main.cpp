@@ -20,12 +20,6 @@
 
 
 // Declare and initialize variables
-Valve valve1(1);
-Log logFile;
-SSRelay ssRelay1(2);
-CurrentSensor iSensor(3);
-VoltageSensor vSensor(4);
-PressureSensor pSensor(5);
 
 
 //https://create.arduino.cc/projecthub/reanimationxp/how-to-multithread-an-arduino-protothreading-tutorial-dd2c37

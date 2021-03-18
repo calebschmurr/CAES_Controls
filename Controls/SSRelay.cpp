@@ -2,16 +2,24 @@
 
 #include "SSRelay.h"
 
+
 SSRelay::SSRelay(const int pinVal) {
     pin = pinVal;
-    state = false;
+    state = Off;
 };
 
-int SSRelay::SetState(bool stateVal) {
-    state = stateVal;
+int SSRelay::on() {
+    state = On;
+    // TODO: set gpio pin
     return 0; // Success
 };
 
-bool SSRelay::GetState() {
+int SSRelay::off() {
+    state = Off;
+    // TODO: set gpio pin
+    return 0; // Success
+};
+
+SSRelay::StatesEnum SSRelay::GetState() { // Our flowchart does not require this method
     return state;
 };

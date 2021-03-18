@@ -7,11 +7,12 @@
 class SSRelay {
 private:
     int pin;
-    bool state;
+    enum StatesEnum { Off, On } state;
     // TODO: position tracking and/or ?fully_open
 
 public:
     SSRelay(const int pinVal);
-    int SetState(bool stateVal);
-    bool GetState();
+    int on();
+    int off();
+    StatesEnum GetState();
 };

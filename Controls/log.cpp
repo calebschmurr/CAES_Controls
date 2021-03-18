@@ -1,6 +1,7 @@
-//log.cpp
-//3-8-21
+// log.cpp
+
 #include "log.h"
+
 
 Log::Log(char* input){
     name = input.c_str();

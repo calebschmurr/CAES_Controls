@@ -6,6 +6,7 @@
 
 #include <string.h>
 
+
 class Log {
 private:
     char name [20];

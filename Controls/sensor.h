@@ -3,7 +3,6 @@
 * Calvin 2021 Senior Design Team 11
 */
 
-
 class Sensor {
 
 private:

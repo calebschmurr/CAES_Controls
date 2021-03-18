@@ -5,6 +5,7 @@
 
 #include "sensor.h"
 
+
 class CurrentSensor: public Sensor {
 private:
     int pin;

@@ -1,11 +1,11 @@
-//CurrentSensor.h
+// CurrentSensor.cpp
 
 #include "CurrentSensor.h"
 
-CurrentSensor::CurrentSensor(const int pinVal){
+CurrentSensor::CurrentSensor(const int pinVal) {
     pin = pinVal;
 }
 
-float CurrentSensor::getValue(){
+float CurrentSensor::getValue() {
     return analogRead(pin)*multiplier;
 }

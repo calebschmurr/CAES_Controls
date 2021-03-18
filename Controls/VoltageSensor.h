@@ -5,6 +5,7 @@
 
 #include "sensor.h"
 
+
 class VoltageSensor: public Sensor {
 private:
     int pin;

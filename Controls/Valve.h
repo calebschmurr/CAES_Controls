@@ -7,9 +7,11 @@
 class Valve {
 private:
     int pin;
-    // TODO: position tracking and/or ?fully_open
+    // TODO: position tracking and/or ?fully_open ... not sure that's possible
 
 public:
     Valve(const int pinVal);
-    int MoveIncrement(int i);
+    int open();
+    int close();
+    int hold();
 };
