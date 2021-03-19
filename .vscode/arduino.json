@@ -1,4 +1,5 @@
 {
     "board": "arduino:avr:uno",
-    "programmer": "ArduinoISP"
+    "programmer": "AVR ISP",
+    "sketch": "Controls\\main.ino"
 }

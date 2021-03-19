@@ -13,6 +13,7 @@ private:
     float multiplier = 0.5f;
 
 public:
+    CurrentSensor();
     CurrentSensor(const int pinVal);
     float getValue();
     
