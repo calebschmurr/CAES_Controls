@@ -15,6 +15,7 @@
 //#include <TimedAction.h> // Threading Library
 
 
+
 // Declare and initialize variables
 
 
@@ -35,14 +36,14 @@ void loop() {
     updateSwitches();
     if (systemMode){
         //Auto
-        if (caesSystem.getState()==state.Charging){
+        if (caesSystem.getState()==Charging){
             if (caesSystem.getPressure() < max_pressure_auto){
                 caesSystem.Charge();
             } else {
                 caesSystem.Discharge();
             }
         } else {
-            if (caesSystem.getState()==state.Discharging){
+            if (caesSystem.getState()==Discharging){
                 if (caesSystem.getPressure() < min_pressure_auto){
                     caesSystem.Charge();
                 } else {
@@ -56,9 +57,9 @@ void loop() {
         }
 
     } else {
-        if (manualState==mode.Charging){
+        if (manualState==Charging){
             caesSystem.Charge();
-        }else if (manualState==mode.Discharging){
+        }else if (manualState==Discharging){
             caesSystem.Discharge();
         } else {
             caesSystem.TurnOff();
@@ -72,10 +73,10 @@ void updateSwitches(){
     systemMode = digitalRead(mode_switch);
     
     if (digitalRead(manual_switch_charge)){
-        manualState = mode.Charging;
+        manualState = Charging;
     } else if (digitalRead(manual_switch_discharge)){
-        manualState = mode.Discharging;
+        manualState = Discharging;
     } else {
-        manualState = mode.Off;
+        manualState = Off;
     }
 }

@@ -2,6 +2,8 @@
 * A parent class for all of the sensor classes
 * Calvin 2021 Senior Design Team 11
 */
+#pragma once
+#include <Arduino.h>
 
 class Sensor {
 

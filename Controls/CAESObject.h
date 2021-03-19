@@ -12,21 +12,11 @@
 #include "config.h"
 
 
+    enum States{Off, Charging, Discharging};
+    enum Modes{Manual, Auto};
+
+
 class CAESObject {
-    private:
-        int cycleTime;
-        Valve valve1;
-        Log logFile;
-        SSRelay ssRelay1;
-        CurrentSensor iSensor;
-        VoltageSensor vSensor;
-        PressureSensor pSensor;
-        enum States{ Off, Charging, Discharging } state;
-        enum Modes{Manual, Auto} mode;
-        void startCharging();
-        void stopCharging();
-        void startDischarging();
-        void stopDischarging();
 
     public:
         CAESObject();
@@ -35,4 +25,20 @@ class CAESObject {
         int TurnOff();
         const int getState();
         int getPressure();
+
+    private:
+        int cycleTime;
+        Valve valve1;
+        Log logFile;
+        SSRelay ssRelay1;
+        CurrentSensor iSensor;
+        VoltageSensor vSensor;
+        PressureSensor pSensor;
+        States state;
+        Modes mode;
+        void startCharging();
+        void stopCharging();
+        void startDischarging();
+        void stopDischarging();
+
 };
