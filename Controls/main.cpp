@@ -18,10 +18,10 @@
 // Declare and initialize variables
 
 
-CAESObject caes_system;
+CAESObject caesSystem;
 
-int _mode = 0;
-int _man_mode = 0;
+int systemMode = 0;
+int manualState = 0;
 
 void setup() {
     // Start logging
@@ -33,35 +33,35 @@ void setup() {
 void loop() {
     // Check and log sensor values
     updateSwitches();
-    if (_mode){
+    if (systemMode){
         //Auto
-        if (caes_system.getState()==state.Charging){
-            if (caes_system.getPressure() < max_pressure_auto){
-                caes_system.Charge();
+        if (caesSystem.getState()==state.Charging){
+            if (caesSystem.getPressure() < max_pressure_auto){
+                caesSystem.Charge();
             } else {
-                caes_system.Discharge();
+                caesSystem.Discharge();
             }
         } else {
-            if (caes_system.getState()==state.Discharging){
-                if (caes_system.getPressure() < min_pressure_auto){
-                    caes_system.Charge();
+            if (caesSystem.getState()==state.Discharging){
+                if (caesSystem.getPressure() < min_pressure_auto){
+                    caesSystem.Charge();
                 } else {
-                    caes_system.Discharge();
+                    caesSystem.Discharge();
                 }
             }else {
                 //Default Behavior.
                 //For now - discharge.
-                caes_system.Discharge();
+                caesSystem.Discharge();
             }
         }
 
     } else {
-        if (_man_mode==mode.Charging){
-            caes_system.Charge();
-        }else if (_man_mode==mode.Discharging){
-            caes_system.Discharge();
+        if (manualState==mode.Charging){
+            caesSystem.Charge();
+        }else if (manualState==mode.Discharging){
+            caesSystem.Discharge();
         } else {
-            caes_system.TurnOff();
+            caesSystem.TurnOff();
         }
     }
     //End of loop. Reloop.
@@ -69,13 +69,13 @@ void loop() {
 
 
 void updateSwitches(){
-    _mode = digitalRead(mode_switch);
+    systemMode = digitalRead(mode_switch);
     
     if (digitalRead(manual_switch_charge)){
-        _man_mode = mode.Charging;
+        manualState = mode.Charging;
     } else if (digitalRead(manual_switch_discharge)){
-        _man_mode = mode.Discharging;
+        manualState = mode.Discharging;
     } else {
-        _man_mode = mode.Off;
+        manualState = mode.Off;
     }
 }
