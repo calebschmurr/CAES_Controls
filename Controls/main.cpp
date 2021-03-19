@@ -6,13 +6,9 @@
 
 
 // Custom classes
-#include "CurrentSensor.h"
-#include "VoltageSensor.h"
-#include "PressureSensor.h"
-#include "log.h"
-#include "Valve.h"
-#include "SSRelay.h"
 #include "config.h"
+
+#include "CAESObject.h"
 
 // External classes
 #include <Arduino.h> // Arduino Library
@@ -22,28 +18,64 @@
 // Declare and initialize variables
 
 
-//https://create.arduino.cc/projecthub/reanimationxp/how-to-multithread-an-arduino-protothreading-tutorial-dd2c37
+CAESObject caes_system;
 
-
-
+int _mode = 0;
+int _man_mode = 0;
 
 void setup() {
     // Start logging
     logFile.start();
 
-    // Initialize the valve, sensors, and relay
-    valve1.initialize();
-    ssRelay1.initialize();
-    iSensor.initialize();
-    vSensor.initialize();
-    pSensor.initialize();
     
 }
 
 void loop() {
     // Check and log sensor values
-    // Send messages to threads with mutex or some kind of interprocess communication
-    
+    updateSwitches();
+    if (_mode){
+        //Auto
+        if (caes_system.getState()==state.Charging){
+            if (caes_system.getPressure() < max_pressure_auto){
+                caes_system.Charge();
+            } else {
+                caes_system.Discharge();
+            }
+        } else {
+            if (caes_system.getState()==state.Discharging){
+                if (caes_system.getPressure() < min_pressure_auto){
+                    caes_system.Charge();
+                } else {
+                    caes_system.Discharge();
+                }
+            }else {
+                //Default Behavior.
+                //For now - discharge.
+                caes_system.Discharge();
+            }
+        }
 
+    } else {
+        if (_man_mode==mode.Charging){
+            caes_system.Charge();
+        }else if (_man_mode==mode.Discharging){
+            caes_system.Discharge();
+        } else {
+            caes_system.TurnOff();
+        }
+    }
+    //End of loop. Reloop.
+}
+
+
+void updateSwitches(){
+    _mode = digitalRead(mode_switch);
     
+    if (digitalRead(manual_switch_charge)){
+        _man_mode = mode.Charging;
+    } else if (digitalRead(manual_switch_discharge)){
+        _man_mode = mode.Discharging;
+    } else {
+        _man_mode = mode.Off;
+    }
 }

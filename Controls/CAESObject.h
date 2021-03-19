@@ -22,6 +22,7 @@ class CAESObject {
         VoltageSensor vSensor;
         PressureSensor pSensor;
         enum States{ Off, Charging, Discharging } state;
+        enum Modes{Manual, Auto} mode;
         void startCharging();
         void stopCharging();
         void startDischarging();
@@ -32,4 +33,6 @@ class CAESObject {
         int Charge();
         int Discharge();
         int TurnOff();
+        const int getState();
+        int getPressure();
 };

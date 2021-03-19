@@ -3,6 +3,10 @@
  * This will take the place of a settings file.
  */
 
+
+
+
+
 #define serial_loop_time 1500 // What is this?
 #define default_mode 0 // 0 = manual, 1 = auto // we should use an enum for this
 #define min_pressure_manual 60 // Minimum tank pressure in manual mode
@@ -15,3 +19,12 @@
 #define pressure_sensor_pin 2 // Arduino gpio pin for the pressure sensor
 #define voltage_sensor_pin 3 // Arduino gpio pin for the voltage sensor
 #define current_sensor_pin 4 // Arduino gpio pin for the current sensor
+
+#define manual_switch_discharge 6 //Arduino GPIO pin for the switch modes.
+#define manual_switch_charge 7 //No pin for 'off' state, assumed no voltage.
+#define mode_switch 9 //On = Auto, off = manual.
+
+
+
+#define voltage_lower_bound 4.8
+#define voltage_upper_bound 5.6

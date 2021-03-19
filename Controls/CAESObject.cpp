@@ -10,19 +10,30 @@
 #include "config.h"
 
 
+
+
+
 CAESObject::CAESObject() {
     cycleTime = 0;
-    logFile = Log(); // TODO: use correct constructor
-    valve1 = Valve(Valve_Pin);
-    ssRelay1 = SSRelay(Solid_State_Relay_Pin);
-    iSensor = CurrentSensor(Current_Sensor_Pin);
-    vSensor = VoltageSensor(Voltage_Sensor_Pin);
-    pSensor = PressureSensor(Pressure_Sensor_Pin);
+    // TODO: use correct constructor (Fixed 3/18/21)
+    valve1 = valve_pin;
+    ssRelay1 = solid_state_relay_pin;
+    iSensor = current_sensor_pin;
+    vSensor = voltage_sensor_pin;
+    pSensor = pressure_sensor_pin;
     state = Off;
 }
 
+const int CAESObject::getState(){
+    return state;
+}
+
+int CAESObject::getPressure(){
+    return pSensor.getValue();
+}
+
 void CAESObject::startCharging() {
-    if (cycleTime > Min_Cycle_Time) {
+    if (cycleTime > min_cycle_time) {
         ssRelay1.on();
         cycleTime = 0;
         state = Charging;
@@ -30,7 +41,7 @@ void CAESObject::startCharging() {
 }
 
 void CAESObject::stopCharging() {
-    if (cycleTime > Min_Cycle_Time) {
+    if (cycleTime > min_cycle_time) {
         ssRelay1.off();
         cycleTime = 0;
         state = Off;
@@ -62,7 +73,7 @@ int CAESObject::Charge() {
                 startCharging();
             } break;
     }
-    return o; // Success
+    return 0; // Success
 }
 
 int CAESObject::Discharge() {
@@ -70,9 +81,9 @@ int CAESObject::Discharge() {
     switch (state) {
         case Discharging :
             stopDischarging();
-            if (voltage < "voltage_lower_bound") { // TODO: define these as variables?
+            if (voltage < voltage_lower_bound) { 
                 valve1.open();
-            } else if (voltage > "voltage_upper bound") { // I used a string so that it is red and we remember to change it
+            } else if (voltage > voltage_upper_bound) { // I used a string so that it is red and we remember to change it
                 valve1.close();
             } else {
                 valve1.hold();
@@ -85,7 +96,7 @@ int CAESObject::Discharge() {
             startDischarging();
             break;
     }
-    return o; // Success
+    return 0; // Success
 }
 
 int CAESObject::TurnOff() {
@@ -97,5 +108,5 @@ int CAESObject::TurnOff() {
             stopCharging();
             break;
     }
-    return o; // Success
+    return 0; // Success
 }
