@@ -16,8 +16,6 @@
 #include <Arduino.h> // Arduino Library
 //#include <TimedAction.h> // Threading Library
 
-
-
 // Declare and initialize variables
 
 

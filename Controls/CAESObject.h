@@ -29,11 +29,11 @@ class CAESObject {
     private:
         int cycleTime;
         Valve valve1;
-        Log logFile;
         SSRelay ssRelay1;
         CurrentSensor iSensor;
         VoltageSensor vSensor;
         PressureSensor pSensor;
+        //log LogFile;
         States state;
         Modes mode;
         void startCharging();

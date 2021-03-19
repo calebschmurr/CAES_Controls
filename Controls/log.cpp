@@ -1,5 +1,5 @@
 // log.cpp
-
+/*
 #pragma once
 #include "log.h"
 
@@ -20,3 +20,5 @@ int Log::WriteToLog(const string msg){
 bool Log::closeLog(){
     Serial.end()
 }
+
+*/

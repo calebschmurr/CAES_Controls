@@ -15,7 +15,6 @@ private:
     float multiplier;
 
 public:
-    PressureSensor();
     PressureSensor(const int pinVal);
     float getValue();
 

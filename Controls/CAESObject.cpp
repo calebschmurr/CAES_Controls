@@ -5,14 +5,13 @@
 
 
 
-CAESObject::CAESObject() {
+CAESObject::CAESObject() : valve1(valve_pin), ssRelay1(current_sensor_pin),
+        iSensor(current_sensor_pin), vSensor(voltage_sensor_pin),
+        pSensor(pressure_sensor_pin) {
     cycleTime = 0;
     // TODO: use correct constructor (Fixed 3/18/21)
-    valve1 = valve_pin;
-    ssRelay1 = solid_state_relay_pin;
-    iSensor = current_sensor_pin;
-    vSensor = voltage_sensor_pin;
-    pSensor = pressure_sensor_pin;
+
+
     state = Off;
 }
 

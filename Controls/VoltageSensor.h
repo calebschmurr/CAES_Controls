@@ -16,7 +16,6 @@ private:
     float multiplier = 0.0248868f;
 
 public:
-    VoltageSensor();
     VoltageSensor(const int pinVal);
     float getValue();
 };

@@ -11,7 +11,6 @@ private:
     // TODO: position tracking and/or ?fully_open
 
 public:
-    SSRelay();
     SSRelay(const int pinVal);
     int on();
     int off();
