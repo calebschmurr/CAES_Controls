@@ -2,7 +2,7 @@
 * A class for reading from a current sensor
 * Calvin 2021 Senior Design Team 11
 */
-
+#pragma once
 #include "CurrentSensor.h"
 #include "VoltageSensor.h"
 #include "PressureSensor.h"

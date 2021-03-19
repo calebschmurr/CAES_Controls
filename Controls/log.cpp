@@ -1,5 +1,6 @@
 // log.cpp
 
+#pragma once
 #include "log.h"
 
 

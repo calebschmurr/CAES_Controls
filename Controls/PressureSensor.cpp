@@ -1,5 +1,5 @@
 // PressureSensor.cpp
-
+#pragma once
 #include "PressureSensor.h"
 
 

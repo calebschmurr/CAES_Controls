@@ -6,11 +6,13 @@
 
 
 // Custom classes
+#pragma once
 #include "config.h"
-
+#pragma once
 #include "CAESObject.h"
 
 // External classes
+#pragma once
 #include <Arduino.h> // Arduino Library
 //#include <TimedAction.h> // Threading Library
 
@@ -26,7 +28,7 @@ int manualState = 0;
 
 void setup() {
     // Start logging
-    logFile.start();
+    //logFile.start();
 
     
 }

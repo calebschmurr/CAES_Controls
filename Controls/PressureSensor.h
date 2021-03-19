@@ -2,7 +2,7 @@
 * A class for reading from a pressure sensor
 * Calvin 2021 Senior Design Team 11
 */
-
+#pragma once
 #include "sensor.h"
 
 

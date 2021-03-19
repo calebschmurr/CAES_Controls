@@ -3,9 +3,9 @@
 * before during and after Arduino code execution
 * Calvin 2021 Senior Design Team 11
 */
-
+#pragma once
 #include <string.h>
-
+#include <Arduino.h>
 
 class Log {
 private:
