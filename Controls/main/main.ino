@@ -8,11 +8,9 @@
 // Custom classes
 #pragma once
 #include "config.h"
-#pragma once
 #include "CAESObject.h"
 
 // External classes
-#pragma once
 #include <Arduino.h> // Arduino Library
 //#include <TimedAction.h> // Threading Library
 
@@ -54,11 +52,19 @@ void loop() {
 
             } else {
                 caesSystem.Discharge();
+                if (debug_level > 1){
+                    Serial.println(millis() + ": LEVEL 2: System told to discharge.");
+                }
+
+
             }
         } else {
             if (caesSystem.getState()==Discharging){
                 if (caesSystem.getPressure() < min_pressure_auto){
                     caesSystem.Charge();
+                    if (debug_level > 1){
+                        Serial.println(millis() + ": LEVEL 2: System told to charge.");
+                    }
                 } else {
                     caesSystem.Discharge();
                 }
