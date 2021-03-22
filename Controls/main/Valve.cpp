@@ -6,6 +6,9 @@
 
 
 Valve::Valve(const int pinVal) {
+    l.WriteToLog(3, "Valve Initialized.");
+    Serial.println("This_Test");
+
     pin = pinVal;
 }
 

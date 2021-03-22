@@ -5,8 +5,6 @@
 
 
 
-
-
 #define serial_loop_time 1500 // What is this?
 #define default_mode 0 // 0 = manual, 1 = auto // we should use an enum for this
 #define min_pressure_manual 60 // Minimum tank pressure in manual mode
@@ -29,4 +27,4 @@
 #define voltage_lower_bound 4.8
 #define voltage_upper_bound 5.6
 
-#define debug_level 0 //Debug level list: 0 - none. 1 - error statements. 2 - important statements. 3 - verbose.  Everything out.
+#define debug_level 3 //Debug level list: 0 - none. 1 - error statements. 2 - important statements. 3 - verbose.  Everything out.

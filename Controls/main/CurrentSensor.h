@@ -4,14 +4,15 @@
 */
 
 #include "sensor.h"
-
+#include "log.h"
 
 class CurrentSensor: public Sensor {
 private:
     int pin;
     //TODO: Determine multiplier.
     float multiplier = 0.5f;
-
+    Log l;
+    
 public:
     CurrentSensor(const int pinVal);
     float getValue();

@@ -36,6 +36,7 @@ class CAESObject {
         //log LogFile;
         States state;
         Modes mode;
+        Log l;
         void startCharging();
         void stopCharging();
         void startDischarging();

@@ -6,13 +6,16 @@
 #pragma once
 #include <string.h>
 #include <Arduino.h>
+#include "config.h"
+
+using namespace std;
 
 class Log {
 private:
     char name [20];
 
 public:
-    Log(char* input); //Open up a serial comms port
-    int WriteToLog(const String msg);//Return  -1 if failed.
+    Log(); //Open up a serial comms port
+    int WriteToLog(int level, String msg);  //Return  -1 if failed.
     bool closeLog();
 };

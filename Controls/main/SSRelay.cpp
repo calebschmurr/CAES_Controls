@@ -4,6 +4,8 @@
 
 
 SSRelay::SSRelay(const int pinVal) {
+    l.WriteToLog(3, "SSRelay Initialized.");
+
     pin = pinVal;
     state = Off;
 };

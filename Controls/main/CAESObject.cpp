@@ -8,6 +8,8 @@
 CAESObject::CAESObject() : valve1(valve_pin), ssRelay1(current_sensor_pin),
         iSensor(current_sensor_pin), vSensor(voltage_sensor_pin),
         pSensor(pressure_sensor_pin) {
+
+     l.WriteToLog(3, "CAES_Object Initialized.");
     cycleTime = 0;
     // TODO: use correct constructor (Fixed 3/18/21)
 

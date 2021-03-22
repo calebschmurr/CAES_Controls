@@ -1,24 +1,31 @@
 // log.cpp
-/*
+
 #pragma once
 #include "log.h"
+#include <string.h>
 
-
-Log::Log(char* input){
-    name = input.c_str();
-    Serial.begin(9600);
+Log::Log(){
+  //  name = input.c_str();
+ //   Serial.begin(115200);
 }
 
-int Log::WriteToLog(const string msg){
+int Log::WriteToLog(int level, const String msg){
     if (!Serial){
         return -1;
     }
-    Serial.printline(name.c_str()+" "+msg.c_str());
+    if (debug_level >= level){
+        String s;
+        s = millis();
+        s += ": Level ";
+        s += level;
+        s += ": ";
+        s += msg;
+        Serial.println(s);
+    }
+    //Serial.printline(name.c_str()+" "+msg.c_str());
     return 0;
 }
 
 bool Log::closeLog(){
-    Serial.end()
+    Serial.end();
 }
-
-*/
