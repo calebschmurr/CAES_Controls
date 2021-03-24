@@ -14,8 +14,11 @@ private:
     //TODO: Verify that values are consistent across different runs
     //Not necessarily accurate rn
     float multiplier = 0.0248868f;
+    Log l;
 
 public:
     VoltageSensor(const int pinVal);
     float getValue();
+    void setSerial(Stream *_streamObject){ l.setStream(_streamObject); l.WriteToLog(2, "Voltage Sensor Stream initiated."); }
+
 };

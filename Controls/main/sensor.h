@@ -4,6 +4,7 @@
 */
 #pragma once
 #include <Arduino.h>
+#include "Log.h"
 
 class Sensor {
 
@@ -11,6 +12,7 @@ private:
 
     int pin;
     float multiplier;
+    Log l;
 
 public:
     virtual float getValue(); //Virtual makes a class abstract.

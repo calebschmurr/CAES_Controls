@@ -16,4 +16,6 @@ public:
     int open();
     int close();
     int hold();
+    void setSerial(Stream *_streamObject){ l.setStream(_streamObject); l.WriteToLog(2, "Valve 1 Initialized."); }
+
 };

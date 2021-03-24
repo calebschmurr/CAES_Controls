@@ -4,15 +4,13 @@
 
 
 SSRelay::SSRelay(const int pinVal) {
-    l.WriteToLog(3, "SSRelay Initialized.");
-
     pin = pinVal;
     state = Off;
 };
 
 int SSRelay::on() {
     state = On;
-    Serial.println("this.");
+    l.WriteToLog(3, "SSR Set to On.");
     // TODO: set gpio pin
     return 0; // Success
 };
@@ -22,6 +20,7 @@ int SSRelay::off() {
     // TODO: set gpio pin
     return 0; // Success
 };
+
 
 SSRelay::StatesEnum SSRelay::GetState() { // Our flowchart does not require this method
     return state;

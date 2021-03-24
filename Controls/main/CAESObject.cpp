@@ -5,14 +5,12 @@
 
 
 
-CAESObject::CAESObject() : valve1(valve_pin), ssRelay1(current_sensor_pin),
-        iSensor(current_sensor_pin), vSensor(voltage_sensor_pin),
+CAESObject::CAESObject() : valve1(valve_pin), iSensor(current_sensor_pin), ssRelay1(current_sensor_pin), 
+         vSensor(voltage_sensor_pin),
         pSensor(pressure_sensor_pin) {
 
-     l.WriteToLog(3, "CAES_Object Initialized.");
+    
     cycleTime = 0;
-    // TODO: use correct constructor (Fixed 3/18/21)
-
 
     state = Off;
 }
@@ -22,36 +20,36 @@ const int CAESObject::getState(){
 }
 
 int CAESObject::getPressure(){
-    return pSensor.getValue();
+    //return pSensor.getValue();
 }
 
-void CAESObject::startCharging() {
+void CAESObject::startCharging() { /*
     if (cycleTime > min_cycle_time) {
         ssRelay1.on();
         cycleTime = 0;
         state = Charging;
-    }
+    } */
 }
 
-void CAESObject::stopCharging() {
+void CAESObject::stopCharging() { /*
     if (cycleTime > min_cycle_time) {
         ssRelay1.off();
         cycleTime = 0;
         state = Off;
-    }
+    }*/
 }
 
 void CAESObject::startDischarging() {
-    valve1.open();
+  //  valve1.open();
     state = Discharging;
 }
 
 void CAESObject::stopDischarging() {
-    valve1.close();
+//    valve1.close();
 }
 
 int CAESObject::Charge() {
-    switch (state) {
+  /*  switch (state) {
         case Discharging :
             stopDischarging();
             if (pSensor.getValue() < max_pressure_auto) {
@@ -65,11 +63,12 @@ int CAESObject::Charge() {
             if (pSensor.getValue() < max_pressure_auto) {
                 startCharging();
             } break;
-    }
+    }*/
     return 0; // Success
 }
 
 int CAESObject::Discharge() {
+   /*
     int voltage = vSensor.getValue();
     switch (state) {
         case Discharging :
@@ -88,11 +87,11 @@ int CAESObject::Discharge() {
         case Off :
             startDischarging();
             break;
-    }
+    }*/
     return 0; // Success
 }
 
-int CAESObject::TurnOff() {
+int CAESObject::TurnOff() { /*
     switch (state) {
         case Discharging :
             stopDischarging();
@@ -100,6 +99,6 @@ int CAESObject::TurnOff() {
         case Charging :
             stopCharging();
             break;
-    }
+    }*/
     return 0; // Success
 }

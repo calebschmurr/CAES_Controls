@@ -7,12 +7,16 @@
 Log::Log(){
   //  name = input.c_str();
  //   Serial.begin(115200);
+  //delay(1);
+  //while(!Serial){
+    
+  //}
+//  delay(100);
+  //delay(100);
 }
 
 int Log::WriteToLog(int level, const String msg){
-    if (!Serial){
-        return -1;
-    }
+
     if (debug_level >= level){
         String s;
         s = millis();
@@ -20,7 +24,7 @@ int Log::WriteToLog(int level, const String msg){
         s += level;
         s += ": ";
         s += msg;
-        Serial.println(s);
+        _StreamRef->println(s);
     }
     //Serial.printline(name.c_str()+" "+msg.c_str());
     return 0;

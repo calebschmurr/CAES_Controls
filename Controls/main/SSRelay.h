@@ -21,4 +21,5 @@ public:
     int on();
     int off();
     StatesEnum GetState();
+    void setSerial(Stream *_streamObject){ l.setStream(_streamObject); l.WriteToLog(2, "SSR Stream initiated."); }
 };

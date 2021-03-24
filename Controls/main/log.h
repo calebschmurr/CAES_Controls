@@ -13,9 +13,10 @@ using namespace std;
 class Log {
 private:
     char name [20];
-
+    Stream* _StreamRef;
 public:
-    Log(); //Open up a serial comms port
+    Log(); 
+    void setStream(Stream *streamObject) { _StreamRef = streamObject; }
     int WriteToLog(int level, String msg);  //Return  -1 if failed.
     bool closeLog();
 };

@@ -19,21 +19,22 @@
 // Declare and initialize variables
 
 
-//CAESObject caesSystem;
 Log l;
+CAESObject caesSystem;
 
 int systemMode = 0;
 int manualState = 0;
 
 void setup() {
     // Start logging
-    //logFile.start();
     Serial.begin(9600);
-    while(!Serial){
-      
-    }
+    pinMode(LED_BUILTIN, OUTPUT);
+    digitalWrite(LED_BUILTIN, LOW);
     Serial.println("Serial_Start");
+    l.setStream(&Serial);
+    
     l.WriteToLog(1, "Test_File");
+    caesSystem.setSerial(&Serial);
 }
 
 void loop() {

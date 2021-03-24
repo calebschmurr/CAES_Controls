@@ -13,8 +13,10 @@ private:
     float multiplier = 0.5f;
     Log l;
     
+    
 public:
     CurrentSensor(const int pinVal);
     float getValue();
+    void setSerial(Stream *_streamObject){ l.setStream(_streamObject); l.WriteToLog(2, "Current Sensor Stream initiated."); }
     
-};
+  };

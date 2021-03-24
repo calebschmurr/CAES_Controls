@@ -18,14 +18,6 @@
 
 class CAESObject {
 
-    public:
-        CAESObject();
-        int Charge();
-        int Discharge();
-        int TurnOff();
-        const int getState();
-        int getPressure();
-
     private:
         int cycleTime;
         Valve valve1;
@@ -33,13 +25,26 @@ class CAESObject {
         CurrentSensor iSensor;
         VoltageSensor vSensor;
         PressureSensor pSensor;
-        //log LogFile;
         States state;
         Modes mode;
         Log l;
+
         void startCharging();
         void stopCharging();
         void startDischarging();
         void stopDischarging();
+
+
+    public:
+        CAESObject();
+        int Charge();
+        int Discharge();
+        int TurnOff();
+        const int getState();
+        int getPressure();
+        void setSerial(Stream *_streamObject){ l.setStream(_streamObject); l.WriteToLog(2, "stream_test"); valve1.setSerial(_streamObject); iSensor.setSerial(_streamObject); ssRelay1.setSerial(_streamObject); 
+            vSensor.setSerial(_streamObject); pSensor.setSerial(_streamObject);}
+
+
 
 };
