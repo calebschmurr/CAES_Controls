@@ -4,20 +4,13 @@
 #include "log.h"
 #include <string.h>
 
-Log::Log(){
-  //  name = input.c_str();
- //   Serial.begin(115200);
-  //delay(1);
-  //while(!Serial){
-    
-  //}
-//  delay(100);
-  //delay(100);
+Log::Log() {
+  // TODO: anything here?
 }
 
-int Log::WriteToLog(int level, const String msg){
+int Log::WriteToLog(int level, const String msg) {
 
-    if (debug_level >= level){
+    if (debug_level >= level) {
         String s;
         s = millis();
         s += ": Level ";
@@ -30,6 +23,7 @@ int Log::WriteToLog(int level, const String msg){
     return 0;
 }
 
-bool Log::closeLog(){
+// Is this function actually needed? When would we use it?
+bool Log::closeLog() {
     Serial.end();
 }

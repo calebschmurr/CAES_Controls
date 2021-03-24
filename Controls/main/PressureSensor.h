@@ -21,5 +21,5 @@ public:
     PressureSensor(const int pinVal);
     float getValue();
     void setSerial(Stream *_streamObject){ l.setStream(_streamObject); l.WriteToLog(2, "Pressure Sensor Stream Initialized."); }
-    void CalibrateSensor();
+    void calibrateSensor();
 };

@@ -11,6 +11,7 @@ private:
     int pin;
     // TODO: position tracking and/or ?fully_open ... not sure that's possible
     Log l;
+    
 public:
     Valve(const int pinVal);
     int open();

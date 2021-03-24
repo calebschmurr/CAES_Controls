@@ -12,7 +12,6 @@ using namespace std;
 
 class Log {
 private:
-    char name [20];
     Stream* _StreamRef;
 public:
     Log(); 

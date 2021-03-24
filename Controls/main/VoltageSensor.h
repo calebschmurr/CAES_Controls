@@ -20,5 +20,5 @@ public:
     VoltageSensor(const int pinVal);
     float getValue();
     void setSerial(Stream *_streamObject){ l.setStream(_streamObject); l.WriteToLog(2, "Voltage Sensor Stream initiated."); }
-
+    void calibrateSensor();
 };

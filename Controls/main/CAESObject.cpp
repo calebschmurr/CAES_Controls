@@ -5,13 +5,14 @@
 
 
 
-CAESObject::CAESObject() : valve1(valve_pin), iSensor(current_sensor_pin), ssRelay1(current_sensor_pin), 
-         vSensor(voltage_sensor_pin),
-        pSensor(pressure_sensor_pin) {
-
-    
+CAESObject::CAESObject() :  
+    valve1(valve_pin), 
+    iSensor(current_sensor_pin), 
+    ssRelay1(current_sensor_pin), 
+    vSensor(voltage_sensor_pin),
+    pSensor(pressure_sensor_pin) 
+{
     cycleTime = 0;
-
     state = Off;
 }
 

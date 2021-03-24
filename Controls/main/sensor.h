@@ -15,5 +15,5 @@ private:
     Log l;
 
 public:
-    virtual float getValue(); //Virtual makes a class abstract.
+    virtual float getValue(); // Virtual makes a class abstract.
 };
