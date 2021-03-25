@@ -6,9 +6,9 @@
 
 
 CAESObject::CAESObject() :  
-    valve1(valve_pin), 
+    valve1(valve_open_pin, valve_close_pin), 
     iSensor(current_sensor_pin), 
-    ssRelay1(current_sensor_pin), 
+    ssRelay1(solid_state_relay_pin), 
     vSensor(voltage_sensor_pin),
     pSensor(pressure_sensor_pin) 
 {
@@ -16,11 +16,13 @@ CAESObject::CAESObject() :
     state = Off;
 }
 
-const int CAESObject::getState(){
+const int CAESObject::getState() {
+    l.WriteToLog(3, "CAES System: reading state.");
     return state;
 }
 
-int CAESObject::getPressure(){
+int CAESObject::getPressure() {
+    l.WriteToLog(3, "CAES System: reading pressure sensor.");
     //return pSensor.getValue();
 }
 

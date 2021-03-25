@@ -8,9 +8,12 @@
 
 class CurrentSensor: public Sensor {
 private:
+    // If variables with these names will be used by every
+    // sensor they should be declared in sensor.h right?
     int pin;
     //TODO: Determine multiplier.
     float multiplier = 0.5f;
+    int baseVal;
     Log l;
     
     

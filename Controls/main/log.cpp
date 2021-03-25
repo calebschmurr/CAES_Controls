@@ -6,6 +6,7 @@
 
 Log::Log() {
   // TODO: anything here?
+  // Should the log tell us when it is properly initialized?
 }
 
 int Log::WriteToLog(int level, const String msg) {

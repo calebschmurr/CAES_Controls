@@ -6,19 +6,20 @@
 SSRelay::SSRelay(const int pinVal) {
     pin = pinVal;
     state = Off;
-    l.WriteToLog(3, "SSR initialized and set to Off.");
+    digitalWrite(pin, LOW); // Is this needed?
+    l.WriteToLog(3, "SSR: initialized and set to Off.");
 };
 
 int SSRelay::on() {
     state = On;
-    l.WriteToLog(3, "SSR Set to On.");
-    // TODO: set gpio pin
+    digitalWrite(pin, HIGH);
+    l.WriteToLog(3, "SSR: Set to On.");
     return 0; // Success
 };
 
 int SSRelay::off() {
     state = Off;
-    l.WriteToLog(3, "SSR Set to Off.");
-    // TODO: set gpio pin
+    digitalWrite(pin, LOW);
+    l.WriteToLog(3, "SSR: Set to Off.");
     return 0; // Success
 };

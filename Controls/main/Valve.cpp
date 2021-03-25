@@ -5,21 +5,28 @@
 #include "Valve.h"
 
 
-Valve::Valve(const int pinVal) {
-  pin = pinVal;
+Valve::Valve(const int openPinVal, const int closePinVal) {
+    openPin = openPinVal;
+    closePin = close;
 }
 
 int Valve::open() {
-    // TODO: set gpio pins
+    digitalWrite(openPin, HIGH);
+    digitalWrite(closePin, LOW);
+    l.WriteToLog(3, "Valve: set to open.");
     return 0; // Success
 }
 
 int Valve::close() {
-    // TODO: set gpio pins
+    digitalWrite(openPin, LOW);
+    digitalWrite(closePin, HIGH);
+    l.WriteToLog(3, "Valve: set to close.");
     return 0; // Success
 }
 
 int Valve::hold() {
-    // TODO: set gpio pins
+    digitalWrite(openPin, LOW);
+    digitalWrite(closePin, LOW);
+    l.WriteToLog(3, "Valve: set to hold.");
     return 0; // Success
 }

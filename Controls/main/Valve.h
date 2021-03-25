@@ -8,12 +8,13 @@
 
 class Valve {
 private:
-    int pin;
+    int openPin;
+    int closePin;
     // TODO: position tracking and/or ?fully_open ... not sure that's possible
     Log l;
     
 public:
-    Valve(const int pinVal);
+    Valve(const int openPinVal, const int closePinVal);
     int open();
     int close();
     int hold();

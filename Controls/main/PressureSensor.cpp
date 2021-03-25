@@ -11,15 +11,16 @@ PressureSensor::PressureSensor(const int pinVal) {
 }
 
 float PressureSensor::getValue() {
-    return analogRead(pin)-baseVal;
+    return analogRead(pin) - baseVal;
+    l.WriteToLog(3, "Pressure Sensor: reading value.");
 }
 
 void PressureSensor::calibrateSensor() {
-    for (int inc=0; inc<15; inc++) {
-        baseVal+=analogRead(pin);
+    for (int inc = 0; inc < 15; inc++) {
+        baseVal += analogRead(pin);
         delay(100);
     }
-    baseVal = baseVal/15;
-    l.WriteToLog(3, "Pressure Sensor calibration complete.");
-    // TODO: evaluate this algorithm
+    baseVal = baseVal / 15;
+    l.WriteToLog(3, "Pressure Sensor: calibration complete.");
+    // TODO: improve this algorithm
 }

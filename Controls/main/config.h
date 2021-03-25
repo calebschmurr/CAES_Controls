@@ -13,13 +13,14 @@
 #define max_pressure_auto 120 // Maximum tank pressure in auto mode
 #define min_cycle_time 20 // Can only change charging states every x seconds.
 #define solid_state_relay_pin 1 // Arduino gpio pin for the ssr
-#define valve_pin 1 // Arduino gpio pin for the motorized valve
-#define pressure_sensor_pin 2 // Arduino gpio pin for the pressure sensor
-#define voltage_sensor_pin 3 // Arduino gpio pin for the voltage sensor
-#define current_sensor_pin 4 // Arduino gpio pin for the current sensor
+#define valve_open_pin 2 // Arduino gpio pin for the motorized valve's "open" circuit
+#define valve_close_pin 3 // Arduino gpio pin for the motorized valve's "close" circuit
+#define pressure_sensor_pin 4 // Arduino gpio pin for the pressure sensor
+#define voltage_sensor_pin 5 // Arduino gpio pin for the voltage sensor
+#define current_sensor_pin 6 // Arduino gpio pin for the current sensor
 
-#define manual_switch_discharge 6 //Arduino GPIO pin for the switch modes.
-#define manual_switch_charge 7 //No pin for 'off' state, assumed no voltage.
+#define manual_switch_discharge 7 // Arduino GPIO pin for the switch modes.
+#define manual_switch_charge 8 // No pin for 'off' state, assumed no voltage.
 #define mode_switch 9 //On = Auto, off = manual.
 
 
