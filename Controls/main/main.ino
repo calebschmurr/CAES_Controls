@@ -20,7 +20,7 @@
 
 
 Log l;
-CAESObject caesSystem;
+CAESObject caesSystem; 
 
 int systemMode = 0;
 int manualState = 0;
@@ -34,7 +34,7 @@ void setup() {
     l.setStream(&Serial);
     
     l.WriteToLog(1, "Test_File");
-    caesSystem.setSerial(&Serial);
+    caesSystem.setSerial(&Serial); //Context pass the Log variable, not the stream object to make it easier.
 }
 
 void loop() {

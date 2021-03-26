@@ -43,6 +43,7 @@ class CAESObject {
         const int getState();
         int getPressure();
         // Can we put the definition of this function in .cpp?
+        
         void setSerial(Stream *_streamObject){ l.setStream(_streamObject); l.WriteToLog(2, "stream_test"); valve1.setSerial(_streamObject); iSensor.setSerial(_streamObject); ssRelay1.setSerial(_streamObject); 
             vSensor.setSerial(_streamObject); pSensor.setSerial(_streamObject);}
 

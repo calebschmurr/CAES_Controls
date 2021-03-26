@@ -4,7 +4,7 @@
 */
 #pragma once
 #include <Arduino.h>
-#include "Log.h"
+#include "log.h"
 
 class Sensor {
 
