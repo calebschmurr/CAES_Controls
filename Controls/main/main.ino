@@ -17,8 +17,6 @@
 //#include <TimedAction.h> // Threading Library
 
 // Declare and initialize variables
-
-
 Log l;
 CAESObject caesSystem; 
 
@@ -34,73 +32,80 @@ void setup() {
     l.setStream(&Serial);
     
     l.WriteToLog(1, "Test_File");
-    caesSystem.setSerial(&Serial); //Context pass the Log variable, not the stream object to make it easier.
+    caesSystem.setSerial(&Serial); // TODO? Context pass the Log variable, not the stream object to make it easier.
+
+    pinMode(mode_switch_pin, INPUT);
+    pinMode(manual_switch_charge_pin, INPUT);
+    pinMode(manual_switch_discharge_pin, INPUT);
 }
 
 void loop() {
-    /*// Check and log sensor values
+    // Check and log sensor values
     updateSwitches();
-    if (systemMode){
+    if (systemMode) { // Auto Mode
 
-        l.WriteToLog(3, "System Mode is Auto.");
+        l.WriteToLog(3, "Main: Mode switch is set to Auto.");
 
-        //Auto
-        if (caesSystem.getState()==Charging){
+        if (caesSystem.getState() == Charging) { // Charging State
             
-            l.WriteToLog(3, "System is read as in mode charging.");
+            l.WriteToLog(3, "Main.Auto: System state is Charging.");
 
-            if (caesSystem.getPressure() < max_pressure_auto){
-                caesSystem.Charge();
-                l.WriteToLog(2, "System mode is set to charging.");
-
+            if (caesSystem.getPressure() < max_pressure_auto) {
+                l.WriteToLog(2, "Main.Auto: Sending charge command to system.");
+                // caesSystem.Charge();
             } else {
-                caesSystem.Discharge();
-                l.WriteToLog(2, "System mode is set to discharging.");
+                l.WriteToLog(2, "Main.Auto: Sending discharge command to system.");
+                // caesSystem.Discharge();
             }
         } else {
-            if (caesSystem.getState()==Discharging){
-                if (caesSystem.getPressure() < min_pressure_auto){
-                    caesSystem.Charge();
-                    l.WriteToLog(2, "System set to charge.");
+            if (caesSystem.getState() == Discharging) {
+                if (caesSystem.getPressure() < min_pressure_auto) {
+                    l.WriteToLog(2, "Main.Auto: Sending charge command to system.");
+                    // caesSystem.Charge();
                 } else {
-                    caesSystem.Discharge();
-                    l.WriteToLog(2, "System set to discharge.");
+                    l.WriteToLog(2, "Main.Auto: Sending discharge command to system.");
+                    // caesSystem.Discharge();
                 }
-            }else {
-                //Default Behavior.
-                //For now - discharge.
-                caesSystem.Discharge();
-                l.WriteToLog(2, "System set to discharge.");
+            } else {
+                l.WriteToLog(3, "Main.Auto: System state is Off.");
+                // Default Behavior - For now it is Discharge()
+                l.WriteToLog(2, "Main.Auto: Sending discharge command to system.");
+                // caesSystem.Discharge();
             }
         }
 
-    } else {
-        l.WriteToLog(3, "System read as in manual mode.");
-        if (manualState==Charging){
-            caesSystem.Charge();
-            l.WriteToLog(2, "System mode is set to Charging in manual mode.");
-        }else if (manualState==Discharging){
-            caesSystem.Discharge();
-            l.WriteToLog(2, "System mode is set to Discharging in manual mode.");
+    } else { // Manual Mode
 
+        l.WriteToLog(3, "Main: Mode switch is set to Manual.");
+
+        if (manualState == Charging) {
+            l.WriteToLog(3, "Main.Manual: Manual state switch is set to Charge.");
+            l.WriteToLog(2, "Main.Manual: Sending charge command to system.");
+            // caesSystem.Charge();
+        } else if (manualState == Discharging) {
+            l.WriteToLog(3, "Main.Manual: Manual state switch is set to Discharge.");
+            l.WriteToLog(2, "Main.Manual: Sending discharge command to system.");
+            // caesSystem.Discharge();
         } else {
-            caesSystem.TurnOff();
-            l.WriteToLog(2, "System is off in manual mode.");
+            l.WriteToLog(3, "Main.Manual: Manual state switch is set to Off.");
+            l.WriteToLog(2, "Main.Manual: Sending off command to system.");
+            // caesSystem.TurnOff();
         }
     }
-    //End of loop. Reloop.
 }
 
 
-void updateSwitches(){
-    systemMode = digitalRead(mode_switch);
+void updateSwitches() {
+
+    systemMode = digitalRead(mode_switch_pin);
     
-    if (digitalRead(manual_switch_charge)){
+    // TODO: We should probably check for the possibility that 
+    // both switches are high and raise an exception
+    if ( digitalRead(manual_switch_charge_pin) ) {
         manualState = Charging;
-    } else if (digitalRead(manual_switch_discharge)){
+    } else if ( digitalRead(manual_switch_discharge_pin) ) {
         manualState = Discharging;
     } else {
         manualState = Off;
     }
-    */
 }
