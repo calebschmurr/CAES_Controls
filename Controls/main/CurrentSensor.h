@@ -14,12 +14,12 @@ private:
     //TODO: Determine multiplier.
     float multiplier = 0.5f;
     int baseVal;
-    Log l;
+    Log * l;
     
     
 public:
     CurrentSensor(const int pinVal);
     float getValue();
-    void setSerial(Stream *_streamObject){ l.setStream(_streamObject); l.WriteToLog(2, "Current Sensor Stream initiated."); }
+    void setLog(Log *_streamObject){ l = _streamObject; l->WriteToLog(2, "Current Sensor Stream initiated."); }
     void calibrateSensor();
   };

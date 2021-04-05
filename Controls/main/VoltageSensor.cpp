@@ -7,7 +7,7 @@ VoltageSensor::VoltageSensor(const int pinVal) {
 
 float VoltageSensor::getValue() {
     return analogRead(pin) * multiplier - baseVal;
-    l.WriteToLog(3, "Voltage Sensor: reading value.");
+    l->WriteToLog(3, "Voltage Sensor: reading value.");
 }
 
 void VoltageSensor::calibrateSensor() {
@@ -16,6 +16,6 @@ void VoltageSensor::calibrateSensor() {
         delay(100);
     }
     baseVal = baseVal / 15;
-    l.WriteToLog(3, "Voltage Sensor: calibration complete.");
+    l->WriteToLog(3, "Voltage Sensor: calibration complete.");
     // TODO: improve this algorithm
 }

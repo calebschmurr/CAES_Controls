@@ -8,7 +8,7 @@ CurrentSensor::CurrentSensor(const int pinVal) {
 
 float CurrentSensor::getValue() {
     return analogRead(pin) * multiplier - baseVal;
-    l.WriteToLog(3, "Current Sensor: reading value.");
+    l->WriteToLog(3, "Current Sensor: reading value.");
 }
 
 void CurrentSensor::calibrateSensor() {
@@ -17,6 +17,6 @@ void CurrentSensor::calibrateSensor() {
         delay(100);
     }
     baseVal = baseVal / 15;
-    l.WriteToLog(3, "Current Sensor: calibration complete.");
+    l->WriteToLog(3, "Current Sensor: calibration complete.");
     // TODO: evaluate this algorithm
 }

@@ -27,7 +27,7 @@ class CAESObject {
         PressureSensor pSensor;
         States state;
         Modes mode;
-        Log l;
+        Log * l;
 
         void startCharging();
         void stopCharging();
@@ -44,7 +44,7 @@ class CAESObject {
         int getPressure();
         // Can we put the definition of this function in .cpp?
         
-        void setSerial(Stream *_streamObject){ l.setStream(_streamObject); l.WriteToLog(2, "stream_test"); valve1.setSerial(_streamObject); iSensor.setSerial(_streamObject); ssRelay1.setSerial(_streamObject); 
-            vSensor.setSerial(_streamObject); pSensor.setSerial(_streamObject);}
+        void setLog(Log *_streamObject){ l = _streamObject; l->WriteToLog(2, "stream_test"); valve1.setLog(_streamObject); iSensor.setLog(_streamObject); ssRelay1.setLog(_streamObject); 
+            vSensor.setLog(_streamObject); pSensor.setLog(_streamObject);}
 
 };

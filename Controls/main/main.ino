@@ -32,7 +32,7 @@ void setup() {
     l.setStream(&Serial);
     
     l.WriteToLog(1, "Test_File");
-    caesSystem.setSerial(&Serial); // TODO? Context pass the Log variable, not the stream object to make it easier.
+    caesSystem.setLog(&l); // TODO? Context pass the Log variable, not the stream object to make it easier.
 
     pinMode(mode_switch_pin, INPUT);
     pinMode(manual_switch_charge_pin, INPUT);

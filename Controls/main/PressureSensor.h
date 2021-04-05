@@ -15,11 +15,11 @@ private:
     int pin;
     int baseVal;
     float multiplier;
-    Log l;
+    Log * l;
 
 public:
     PressureSensor(const int pinVal);
     float getValue();
-    void setSerial(Stream *_streamObject){ l.setStream(_streamObject); l.WriteToLog(2, "Pressure Sensor Stream Initialized."); }
+    void setLog(Log *_streamObject){ l = _streamObject; l->WriteToLog(2, "Pressure Sensor Stream Initialized."); }
     void calibrateSensor();
 };

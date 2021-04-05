@@ -11,13 +11,13 @@ private:
     int openPin;
     int closePin;
     // TODO: position tracking and/or ?fully_open ... not sure that's possible
-    Log l;
+    Log * l;
     
 public:
     Valve(const int openPinVal, const int closePinVal);
     int open();
     int close();
     int hold();
-    void setSerial(Stream *_streamObject){ l.setStream(_streamObject); l.WriteToLog(2, "Valve 1 Initialized."); }
+    void setLog(Log *_streamObject){ l = _streamObject; l->WriteToLog(2, "Valve 1 Initialized."); }
 
 };

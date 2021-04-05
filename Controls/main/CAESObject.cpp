@@ -16,12 +16,12 @@ CAESObject::CAESObject() :
 }
 
 const int CAESObject::getState() {
-    l.WriteToLog(3, "CAES System: reading state.");
+    l->WriteToLog(3, "CAES System: reading state.");
     return state;
 }
 
 int CAESObject::getPressure() {
-    l.WriteToLog(3, "CAES System: reading pressure sensor.");
+    l->WriteToLog(3, "CAES System: reading pressure sensor.");
     // return pSensor.getValue();
     return 80;
 }

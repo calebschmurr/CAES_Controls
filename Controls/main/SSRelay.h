@@ -14,12 +14,12 @@ private:
     int pin;
     enum StatesEnum { Off, On } state;
     // TODO: position tracking and/or ?fully_open
-    Log l;
+    Log * l;
     
 public:
     SSRelay(const int pinVal);
     int on();
     int off();
     StatesEnum GetState();
-    void setSerial(Stream *_streamObject){ l.setStream(_streamObject); l.WriteToLog(2, "SSR Stream initiated."); }
+    void setLog(Log *_streamObject){ l = _streamObject; l->WriteToLog(2, "SSR Stream initiated."); }
 };
