@@ -1,5 +1,7 @@
 //VoltageSensor.cpp
+
 #include "VoltageSensor.h"
+
 
 VoltageSensor::VoltageSensor(const int pinVal) {
     pin = pinVal;

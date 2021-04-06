@@ -3,10 +3,13 @@
 * on the output of the compressed-air tank
 * Calvin 2021 Senior Design Team 11
 */
+
 #pragma once
 #include "log.h"
 
+
 class Valve {
+    
 private:
     int openPin;
     int closePin;
@@ -18,6 +21,6 @@ public:
     int open();
     int close();
     int hold();
-    void setLog(Log *_streamObject){ l = _streamObject; l->WriteToLog(2, "Valve 1 Initialized."); }
+    //void setLog(Log *_streamObject){ l = _streamObject; l->WriteToLog(2, "Valve 1 Initialized."); }
 
 };

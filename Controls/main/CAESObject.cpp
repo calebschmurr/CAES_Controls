@@ -1,6 +1,5 @@
 // CAESObject.cpp
 
-#pragma once
 #include "CAESObject.h"
 
 

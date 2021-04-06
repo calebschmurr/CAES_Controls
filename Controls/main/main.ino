@@ -6,43 +6,42 @@
 
 
 // Custom classes
-#pragma once
 #include "config.h"
 #include "CAESObject.h"
-
 #include "log.h"
 
-// External classes
-#include <Arduino.h> // Arduino Library
-//#include <TimedAction.h> // Threading Library
 
 // Declare and initialize variables
 Log l;
 CAESObject caesSystem; 
 
-int systemMode = 0;
-int manualState = 0;
+Modes systemMode;
+States manualState;
 
 void setup() {
     // Start logging
     Serial.begin(9600);
-    pinMode(LED_BUILTIN, OUTPUT);
-    digitalWrite(LED_BUILTIN, LOW);
+    //pinMode(LED_BUILTIN, OUTPUT);
+    //digitalWrite(LED_BUILTIN, LOW);
     Serial.println("Serial_Start");
     l.setStream(&Serial);
     
-    l.WriteToLog(1, "Test_File");
-    caesSystem.setLog(&l); // TODO? Context pass the Log variable, not the stream object to make it easier.
+    l.WriteToLog(1, "Log_Start");
+    //caesSystem.setLog(&l);
 
+    
     pinMode(mode_switch_pin, INPUT);
     pinMode(manual_switch_charge_pin, INPUT);
     pinMode(manual_switch_discharge_pin, INPUT);
+    
 }
 
-void loop() {
+void loop() { 
     // Check and log sensor values
     updateSwitches();
-    if (systemMode) { // Auto Mode
+    l.WriteToLog(3, "Main: Reading Switch Values");
+    /*
+    if (systemMode = Auto) { // Auto Mode
 
         l.WriteToLog(3, "Main: Mode switch is set to Auto.");
 
@@ -91,21 +90,30 @@ void loop() {
             l.WriteToLog(2, "Main.Manual: Sending off command to system.");
             // caesSystem.TurnOff();
         }
-    }
+    }*/
 }
 
 
 void updateSwitches() {
 
-    systemMode = digitalRead(mode_switch_pin);
-    
+    if ( digitalRead(mode_switch_pin) ) {
+        l.WriteToLog(2, "Main: Mode switch is set to Manual");
+        systemMode = Manual;
+    } else {
+        l.WriteToLog(2, "Main: Mode switch is set to Auto");
+        systemMode = Auto;
+    }
+
     // TODO: We should probably check for the possibility that 
     // both switches are high and raise an exception
     if ( digitalRead(manual_switch_charge_pin) ) {
+        l.WriteToLog(3, "Main: State switch is set to Charging");
         manualState = Charging;
     } else if ( digitalRead(manual_switch_discharge_pin) ) {
+        l.WriteToLog(3, "Main: State switch is set to Discharging");
         manualState = Discharging;
     } else {
+        l.WriteToLog(3, "Main: State switch is set to Off");
         manualState = Off;
     }
 }

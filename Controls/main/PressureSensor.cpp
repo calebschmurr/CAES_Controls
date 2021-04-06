@@ -1,8 +1,8 @@
 // PressureSensor.cpp
-#pragma once
-#include <Arduino.h>
+
 #include "PressureSensor.h"
-#include <unistd.h>
+//#include <unistd.h> // don't think we need this
+
 
 PressureSensor::PressureSensor(const int pinVal) {
     pin = pinVal;

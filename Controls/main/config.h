@@ -23,10 +23,10 @@
 #define voltage_sensor_pin 1 // Arduino analog pin for the voltage sensor
 #define current_sensor_pin 2 // Arduino analog pin for the current sensor
 #define mode_switch_pin 8 // High = Auto, Low = manual
-#define master_on_off_switch_pin // Arduino digital pin for master on/off system overide
+#define master_on_off_switch_pin 11 // Arduino digital pin for master on/off system overide
     // If both manual switch pins are low, mode is "Off"
 #define manual_switch_discharge_pin 12 // Arduino digital pin for mode switch (discharge)
 #define manual_switch_charge_pin 13 // Arduino digital pin for mode switch (charge)
 
 // Debugging level (determines which debugging statements actually end up in the log)
-#define debug_level 3 //Debug level list: 0 - none. 1 - error statements. 2 - important statements. 3 - verbose.  Everything out.
+#define debug_level 2 //Debug level list: 0 - none. 1 - error statements. 2 - important statements. 3 - verbose.  Everything out.

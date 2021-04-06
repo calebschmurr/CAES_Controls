@@ -2,6 +2,7 @@
 * A class for reading from a current sensor
 * Calvin 2021 Senior Design Team 11
 */
+
 #pragma once
 #include "CurrentSensor.h"
 #include "VoltageSensor.h"
@@ -12,9 +13,9 @@
 #include "config.h"
 
 
-    enum States{Off, Charging, Discharging};
-    enum Modes{Manual, Auto};
-
+// Define States and Modes as global enumerations
+enum States{Off, Charging, Discharging};
+enum Modes{Manual, Auto};
 
 class CAESObject {
 
@@ -34,7 +35,6 @@ class CAESObject {
         void startDischarging();
         void stopDischarging();
 
-
     public:
         CAESObject();
         int Charge();
@@ -42,9 +42,5 @@ class CAESObject {
         int TurnOff();
         const int getState();
         int getPressure();
-        // Can we put the definition of this function in .cpp?
-        
-        void setLog(Log *_streamObject){ l = _streamObject; l->WriteToLog(2, "stream_test"); valve1.setLog(_streamObject); iSensor.setLog(_streamObject); ssRelay1.setLog(_streamObject); 
-            vSensor.setLog(_streamObject); pSensor.setLog(_streamObject);}
 
 };
