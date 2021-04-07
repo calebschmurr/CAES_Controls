@@ -30,9 +30,9 @@ void setup() {
     //caesSystem.setLog(&l);
 
     
-    pinMode(mode_switch_pin, INPUT);
-    pinMode(manual_switch_charge_pin, INPUT);
-    pinMode(manual_switch_discharge_pin, INPUT);
+    pinMode(mode_switch_pin, INPUT_PULLUP);
+    pinMode(manual_switch_charge_pin, INPUT_PULLUP);
+    pinMode(manual_switch_discharge_pin, INPUT_PULLUP);
     
 }
 
