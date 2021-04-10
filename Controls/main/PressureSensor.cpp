@@ -1,13 +1,11 @@
 // PressureSensor.cpp
 
 #include "PressureSensor.h"
-//#include <unistd.h> // don't think we need this
 
 
 PressureSensor::PressureSensor(const int pinVal) {
     pin = pinVal;
     pinMode(pin, INPUT);
-
 }
 
 float PressureSensor::getValue() {

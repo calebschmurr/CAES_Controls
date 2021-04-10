@@ -5,6 +5,7 @@
 
 VoltageSensor::VoltageSensor(const int pinVal) {
     pin = pinVal;
+    pinMode(pin, INPUT);
 }
 
 float VoltageSensor::getValue() {

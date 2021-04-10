@@ -4,6 +4,7 @@
 
 CurrentSensor::CurrentSensor(const int pinVal) {
     pin = pinVal;
+    pinMode(pin, INPUT);
 }
 
 float CurrentSensor::getValue() {

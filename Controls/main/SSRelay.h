@@ -20,5 +20,5 @@ public:
     SSRelay(const int pinVal);
     int on();
     int off();
-    //void setLog(Log *_streamObject){ l = _streamObject; l->WriteToLog(2, "SSR Stream initiated."); }
+    void setLog(Log *_streamObject){ l = _streamObject; l->WriteToLog(2, "SSR Stream initiated."); }
 };

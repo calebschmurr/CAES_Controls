@@ -11,7 +11,7 @@
 #define max_pressure_manual 120 // Maximum tank pressure in manual mode
 #define min_pressure_auto 60 // Minimum tank pressure in auto mode
 #define max_pressure_auto 120 // Maximum tank pressure in auto mode
-#define min_cycle_time 20 // Can only change charging states every x seconds
+#define min_cycle_time 200 // Can only change charging states every x seconds
 #define voltage_lower_bound 4.8 // In discharge mode
 #define voltage_upper_bound 5.6 // In discharge mode
 
@@ -29,4 +29,4 @@
 #define manual_switch_charge_pin 13 // Arduino digital pin for mode switch (charge)
 
 // Debugging level (determines which debugging statements actually end up in the log)
-#define debug_level 2 //Debug level list: 0 - none. 1 - error statements. 2 - important statements. 3 - verbose.  Everything out.
+#define debug_level 0 //Debug level list: 0 - none. 1 - error statements. 2 - important statements. 3 - verbose.  Everything out.

@@ -8,6 +8,8 @@
 Valve::Valve(const int openPinVal, const int closePinVal) {
     openPin = valve_open_pin;
     closePin = valve_close_pin;
+    pinMode(openPin, OUTPUT);
+    pinMode(closePin, OUTPUT);
 }
 
 int Valve::open() {

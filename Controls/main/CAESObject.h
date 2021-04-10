@@ -21,9 +21,9 @@ class CAESObject {
 
     private:
         int cycleTime;
-        Valve valve1;
+        Valve valve1; //Initializer Works
         SSRelay ssRelay1;
-        CurrentSensor iSensor;
+        CurrentSensor iSensor; //Initializer Works
         VoltageSensor vSensor;
         PressureSensor pSensor;
         States state;
@@ -37,10 +37,11 @@ class CAESObject {
 
     public:
         CAESObject();
+        void incrementCycleTime();
         int Charge();
         int Discharge();
         int TurnOff();
         const int getState();
         int getPressure();
-
+        void setLog(Log *_streamObject){ l = _streamObject; l->WriteToLog(2, "stream_test"); valve1.setLog(_streamObject); iSensor.setLog(_streamObject); ssRelay1.setLog(_streamObject);}
 };

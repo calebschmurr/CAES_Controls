@@ -4,14 +4,18 @@
 
 
 CAESObject::CAESObject() :  
-    valve1(valve_open_pin, valve_close_pin), 
-    iSensor(current_sensor_pin), 
+    valve1(valve_open_pin, valve_close_pin),
+    iSensor(current_sensor_pin),
     ssRelay1(solid_state_relay_pin), 
     vSensor(voltage_sensor_pin),
     pSensor(pressure_sensor_pin) 
 {
-    cycleTime = 0;
+    cycleTime = min_cycle_time;
     state = Off;
+}
+
+void CAESObject::incrementCycleTime(){
+  cycleTime += 1;
 }
 
 const int CAESObject::getState() {
@@ -21,24 +25,31 @@ const int CAESObject::getState() {
 
 int CAESObject::getPressure() {
     l->WriteToLog(3, "CAES System: reading pressure sensor.");
-    // return pSensor.getValue();
+    return pSensor.getValue();
     return 80;
 }
 
 void CAESObject::startCharging() {
     if (cycleTime > min_cycle_time) {
+        l->WriteToLog(2, "CAES System: Started charging.");
         ssRelay1.on();
         cycleTime = 0;
         state = Charging;
     }
+    l->WriteToLog(2, "CAES System: startCharging failed due to cycle time.");
+   // cycleTime += 1;
 }
 
 void CAESObject::stopCharging() {
     if (cycleTime > min_cycle_time) {
+        l->WriteToLog(2, "CAES System: Stopped charging.");
         ssRelay1.off();
         cycleTime = 0;
         state = Off;
     }
+    l->WriteToLog(2, "CAES System: stopCharging failed due to cycle time..");
+
+   // cycleTime += 1;
 }
 
 void CAESObject::startDischarging() {
@@ -52,7 +63,8 @@ void CAESObject::stopDischarging() {
 }
 
 int CAESObject::Charge() {
-    int pressure = pSensor.getValue();
+   //int pressure = pSensor.getValue();
+   int pressure = 0;
     switch (state) {
         case Discharging :
             stopDischarging();
@@ -73,6 +85,7 @@ int CAESObject::Charge() {
 
 int CAESObject::Discharge() {
     int voltage = vSensor.getValue();
+    //int voltage = 0;
     switch (state) {
         case Discharging :
             stopDischarging();

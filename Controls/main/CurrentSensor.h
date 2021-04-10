@@ -20,6 +20,6 @@ private:
 public:
     CurrentSensor(const int pinVal);
     float getValue();
-    //void setLog(Log *_streamObject){ l = _streamObject; l->WriteToLog(2, "Current Sensor Stream initiated."); }
+    void setLog(Log *_streamObject){ l = _streamObject; l->WriteToLog(2, "Current Sensor Stream initiated."); }
     void calibrateSensor();
   };
