@@ -13,10 +13,12 @@
 
 // Declare and initialize variables
 Log l;
-CAESObject caesSystem; 
+//CAESObject caesSystem; 
 
 Modes systemMode;
 States manualState;
+enum masterOnOff {MasterOff, MasterOn} systemMasterOnOff;
+
 
 void setup() {
     // Start logging
@@ -25,12 +27,11 @@ void setup() {
     //digitalWrite(LED_BUILTIN, LOW);
     Serial.println("Serial_Start");
     l.setStream(&Serial);
-    
     l.WriteToLog(1, "Log_Start");
-    //caesSystem.setLog(&l);
 
-    
+    // Digital pullup on all switch pins
     pinMode(mode_switch_pin, INPUT_PULLUP);
+    pinMode(master_on_off_switch_pin, INPUT_PULLUP);
     pinMode(manual_switch_charge_pin, INPUT_PULLUP);
     pinMode(manual_switch_discharge_pin, INPUT_PULLUP);
     
@@ -96,24 +97,32 @@ void loop() {
 
 void updateSwitches() {
 
-    if ( digitalRead(mode_switch_pin) ) {
-        l.WriteToLog(2, "Main: Mode switch is set to Manual");
+    if (digitalRead(mode_switch_pin) == LOW) {
+        l.WriteToLog(3, "Main: Mode switch is set to Manual");
         systemMode = Manual;
     } else {
-        l.WriteToLog(2, "Main: Mode switch is set to Auto");
+        l.WriteToLog(3, "Main: Mode switch is set to Auto");
         systemMode = Auto;
     }
 
     // TODO: We should probably check for the possibility that 
     // both switches are high and raise an exception
-    if ( digitalRead(manual_switch_charge_pin) ) {
+    if (digitalRead(manual_switch_charge_pin) == LOW) {
         l.WriteToLog(3, "Main: State switch is set to Charging");
         manualState = Charging;
-    } else if ( digitalRead(manual_switch_discharge_pin) ) {
+    } else if (digitalRead(manual_switch_discharge_pin) == LOW) {
         l.WriteToLog(3, "Main: State switch is set to Discharging");
         manualState = Discharging;
     } else {
         l.WriteToLog(3, "Main: State switch is set to Off");
         manualState = Off;
+    }
+
+    if(digitalRead(master_on_off_switch_pin) == LOW) {
+        l.WriteToLog(2, "Main: Master switch is set to Off");
+        systemMasterOnOff = MasterOff;
+    } else {
+        l.WriteToLog(2, "Main: Master switch is set to On");
+        systemMasterOnOff = MasterOn;
     }
 }

@@ -14,8 +14,8 @@
 
 
 // Define States and Modes as global enumerations
-enum States{Off, Charging, Discharging};
-enum Modes{Manual, Auto};
+enum States {Off, Charging, Discharging};
+enum Modes {Manual, Auto};
 
 class CAESObject {
 
