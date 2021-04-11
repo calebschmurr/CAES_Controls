@@ -44,8 +44,9 @@ void setup() {
 void loop() { 
     // Check and log sensor values
     updateSwitches();
-    caesSystem.incrementCycleTime();
     l.WriteToLog(3, "Main: Reading Switch Values");
+
+  if (systemMasterOnOff == MasterOn){
     
     if (systemMode == Auto) { // Auto Mode
 
@@ -96,6 +97,10 @@ void loop() {
             caesSystem.TurnOff();
         }
     }
+  } else {
+  //If the master switch is off:
+  caesSystem.ForceOff();
+  }
 }
 
 

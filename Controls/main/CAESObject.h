@@ -20,7 +20,7 @@ enum Modes {Manual, Auto};
 class CAESObject {
 
     private:
-        int cycleTime;
+        long cycleTime;
         Valve valve1; //Initializer Works
         SSRelay ssRelay1;
         CurrentSensor iSensor; //Initializer Works
@@ -30,17 +30,18 @@ class CAESObject {
         Modes mode;
         Log * l;
 
-        void startCharging();
-        void stopCharging();
-        void startDischarging();
-        void stopDischarging();
+        int startCharging();
+        int stopCharging();
+        int forceStopCharging(); //Only to be called when master switch is flipped.
+        int startDischarging();
+        int stopDischarging();
 
     public:
         CAESObject();
-        void incrementCycleTime();
         int Charge();
         int Discharge();
         int TurnOff();
+        void ForceOff();
         const int getState();
         int getPressure();
         void setLog(Log *_streamObject){ l = _streamObject; l->WriteToLog(2, "stream_test"); valve1.setLog(_streamObject); iSensor.setLog(_streamObject); ssRelay1.setLog(_streamObject);}

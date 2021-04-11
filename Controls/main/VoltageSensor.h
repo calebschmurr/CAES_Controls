@@ -14,7 +14,7 @@ private:
     //TODO: Verify the value of the multiplier.
     //TODO: Verify that values are consistent across different runs
     //Not necessarily accurate rn
-    float multiplier = 0.0248868f;
+    float multiplier = 1/41.12f;
     Log * l;
 
 public:

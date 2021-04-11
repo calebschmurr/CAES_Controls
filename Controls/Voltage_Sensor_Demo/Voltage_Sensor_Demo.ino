@@ -1,4 +1,4 @@
-const int analogPin = A0;
+const int analogPin = A2;
 
 void setup() {
   // put your setup code here, to run once:
@@ -7,10 +7,14 @@ void setup() {
    
 }
 
+float multiplier = 1/41.12f;
+int baseVal = 0;
+
 void loop() {
   // put your main code here, to run repeatedly:
   while(true){
-    Serial.println(analogRead(analogPin));
-    delay(500);
+    float value = (analogRead(analogPin) *multiplier)-baseVal;
+    Serial.println(value);
+    delay(100);
   }
 }

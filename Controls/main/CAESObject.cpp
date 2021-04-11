@@ -10,13 +10,11 @@ CAESObject::CAESObject() :
     vSensor(voltage_sensor_pin),
     pSensor(pressure_sensor_pin) 
 {
-    cycleTime = min_cycle_time;
+    cycleTime = 0;
     state = Off;
 }
 
-void CAESObject::incrementCycleTime(){
-  cycleTime += 1;
-}
+
 
 const int CAESObject::getState() {
     l->WriteToLog(3, "CAES System: reading state.");
@@ -29,37 +27,48 @@ int CAESObject::getPressure() {
     return 80;
 }
 
-void CAESObject::startCharging() {
-    if (cycleTime > min_cycle_time) {
+int CAESObject::startCharging() {
+    if (millis() > cycleTime) {
         l->WriteToLog(2, "CAES System: Started charging.");
         ssRelay1.on();
-        cycleTime = 0;
+        cycleTime = millis() + min_cycle_time;
         state = Charging;
+        return 0;
     }
     l->WriteToLog(2, "CAES System: startCharging failed due to cycle time.");
-   // cycleTime += 1;
+    return -1;
 }
 
-void CAESObject::stopCharging() {
-    if (cycleTime > min_cycle_time) {
+int CAESObject::stopCharging() {
+    if (millis() > cycleTime) {
         l->WriteToLog(2, "CAES System: Stopped charging.");
         ssRelay1.off();
-        cycleTime = 0;
+        cycleTime = millis() + min_cycle_time;
         state = Off;
+        return 0;
     }
     l->WriteToLog(2, "CAES System: stopCharging failed due to cycle time..");
-
-   // cycleTime += 1;
+    return -1;
 }
 
-void CAESObject::startDischarging() {
+int CAESObject::forceStopCharging() {
+  l->WriteToLog(2, "CAES System: forceStopCharging - charging system forced off.");
+  ssRelay1.off();
+  cycleTime = millis() + min_cycle_time;
+  state = Off;
+  return 0;
+}
+
+int CAESObject::startDischarging() {
     valve1.open();
     state = Discharging;
+    return 0;
 }
 
-void CAESObject::stopDischarging() {
+int CAESObject::stopDischarging() {
     valve1.close();
     state = Off;
+    return 0;
 }
 
 int CAESObject::Charge() {
@@ -84,11 +93,10 @@ int CAESObject::Charge() {
 }
 
 int CAESObject::Discharge() {
-    int voltage = vSensor.getValue();
-    //int voltage = 0;
+    //int voltage = vSensor.getValue();
+    int voltage = 0;
     switch (state) {
         case Discharging :
-            stopDischarging();
             if (voltage < voltage_lower_bound) { 
                 valve1.open();
             } else if (voltage > voltage_upper_bound) { // I used a string so that it is red and we remember to change it
@@ -97,8 +105,9 @@ int CAESObject::Discharge() {
                 valve1.hold();
             } break;
         case Charging :
-            stopCharging();
-            startDischarging();
+            if (stopCharging()==0){
+              startDischarging();
+            }
             break;
         case Off :
             startDischarging();
@@ -117,4 +126,15 @@ int CAESObject::TurnOff() {
             break;
     }
     return 0; // Success
+}
+
+void CAESObject::ForceOff(){
+  switch (state) {
+    case Discharging : 
+      stopDischarging();
+      break;
+    case Charging:
+      forceStopCharging();
+      break;
+  }
 }
