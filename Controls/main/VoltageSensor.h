@@ -3,18 +3,17 @@
 * Calvin 2021 Senior Design Team 11
 */
 
-#include "sensor.h"
+#include "log.h"
 
-
-class VoltageSensor: public Sensor {
+class VoltageSensor {
     
 private:
     int pin;
-    int baseVal;
+    float baseVal = 0.0552f;
     //TODO: Verify the value of the multiplier.
     //TODO: Verify that values are consistent across different runs
     //Not necessarily accurate rn
-    float multiplier = 1/41.12f;
+    float multiplier = 0.0246f;
     Log * l;
 
 public:

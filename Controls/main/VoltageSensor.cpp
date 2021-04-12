@@ -14,7 +14,7 @@ float VoltageSensor::getValue() {
     //retString = retString + retInt;
     //l->WriteToLog(3, "Voltage Sensor: reading value." + (analogRead(pin)*multiplier-baseVal));
       //l->WriteToLog(2, retString);
-      return analogRead(pin) * multiplier - baseVal;
+      return (analogRead(pin) * multiplier) + baseVal;
     
 }
 

@@ -3,10 +3,9 @@
 * Calvin 2021 Senior Design Team 11
 */
 
-#include "sensor.h"
 #include "log.h"
 
-class CurrentSensor: public Sensor {
+class CurrentSensor {
 private:
     // If variables with these names will be used by every
     // sensor they should be declared in sensor.h right?

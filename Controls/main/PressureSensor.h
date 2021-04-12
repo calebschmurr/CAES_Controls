@@ -3,17 +3,16 @@
 * Calvin 2021 Senior Design Team 11
 */
 #pragma once
-#include "sensor.h"
 //#include <unistd.h>
+#include "log.h"
 
-
-class PressureSensor : public Sensor {
+class PressureSensor {
 
 private:
 
     int pin;
-    int baseVal;
-    float multiplier;
+    float baseVal = 19.59;
+    float multiplier = 0.1861;
     Log * l;
 
 public:

@@ -8,9 +8,9 @@
 #define serial_loop_time 1500 // What is this?
 #define default_mode 0 // 0 = manual, 1 = auto // we should use an enum for this
 #define min_pressure_manual 60 // Minimum tank pressure in manual mode
-#define max_pressure_manual 120 // Maximum tank pressure in manual mode
+#define max_pressure_manual 90 // Maximum tank pressure in manual mode
 #define min_pressure_auto 60 // Minimum tank pressure in auto mode
-#define max_pressure_auto 120 // Maximum tank pressure in auto mode
+#define max_pressure_auto 90 // Maximum tank pressure in auto mode
 #define min_cycle_time 20000 // Can only change charging states every x seconds
 #define voltage_lower_bound 4.8 // In discharge mode
 #define voltage_upper_bound 5.6 // In discharge mode

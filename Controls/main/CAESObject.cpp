@@ -72,8 +72,8 @@ int CAESObject::stopDischarging() {
 }
 
 int CAESObject::Charge() {
-   //int pressure = pSensor.getValue();
-   int pressure = 0;
+   int pressure = pSensor.getValue();
+   //int pressure = 0;
     switch (state) {
         case Discharging :
             stopDischarging();
@@ -93,8 +93,8 @@ int CAESObject::Charge() {
 }
 
 int CAESObject::Discharge() {
-    //int voltage = vSensor.getValue();
-    int voltage = 0;
+    int voltage = vSensor.getValue();
+    //int voltage = 0;
     switch (state) {
         case Discharging :
             if (voltage < voltage_lower_bound) { 
