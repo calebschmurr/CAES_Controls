@@ -29,8 +29,8 @@ int Valve::close() {
 }
 
 int Valve::hold() {
-    digitalWrite(openPin, LOW);
-    digitalWrite(closePin, LOW);
+    digitalWrite(openPin, HIGH);
+    digitalWrite(closePin, HIGH);
     l->WriteToLog(2, "Valve: set to hold.");
     return 0; // Success
 }

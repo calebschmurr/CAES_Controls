@@ -99,8 +99,14 @@ int CAESObject::Discharge() {
         case Discharging :
             if (voltage < voltage_lower_bound) { 
                 valve1.open();
+                delay(100);
+                valve1.hold();
+                delay(100);
             } else if (voltage > voltage_upper_bound) { // I used a string so that it is red and we remember to change it
                 valve1.close();
+                delay(100);
+                valve1.hold();
+                delay(100);
             } else {
                 valve1.hold();
             } break;
