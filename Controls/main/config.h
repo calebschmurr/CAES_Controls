@@ -15,6 +15,8 @@
 #define voltage_lower_bound 7.0 // In discharge mode
 #define voltage_upper_bound 20 // In discharge mode
 
+#define window_time 500 //For PID controller.
+
 // Arduino pins
 #define solid_state_relay_pin 9 // Arduino digital pin for the ssr
 #define valve_open_pin 5 // Arduino digital pin for the motorized valve's "open" circuit

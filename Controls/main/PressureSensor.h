@@ -19,5 +19,4 @@ public:
     PressureSensor(const int pinVal);
     float getValue();
     void setLog(Log *_streamObject){ l = _streamObject; l->WriteToLog(2, "Pressure Sensor Stream Initialized."); }
-    void calibrateSensor();
 };

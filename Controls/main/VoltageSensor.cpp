@@ -17,13 +17,3 @@ float VoltageSensor::getValue() {
       return (analogRead(pin) * multiplier) + baseVal;
     
 }
-
-void VoltageSensor::calibrateSensor() {
-    for (int inc = 0; inc < 15; inc++) {
-        baseVal += analogRead(pin);
-        delay(100);
-    }
-    baseVal = baseVal / 15;
-    l->WriteToLog(3, "Voltage Sensor: calibration complete.");
-    // TODO: improve this algorithm
-}

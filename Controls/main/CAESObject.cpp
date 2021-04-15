@@ -8,10 +8,15 @@ CAESObject::CAESObject() :
     iSensor(current_sensor_pin),
     ssRelay1(solid_state_relay_pin), 
     vSensor(voltage_sensor_pin),
-    pSensor(pressure_sensor_pin) 
+    pSensor(pressure_sensor_pin),
+    pidControl(&voltageIn, &pidOut, &voltage_target, 2, 5, 1, DIRECT) 
 {
     cycleTime = 0;
     state = Off;
+    pidControl.SetOutputLimits(-100, 100);
+    pidControl.SetSampleTime(50);
+    //windowStartTime = millis();
+    
 }
 
 
@@ -61,13 +66,17 @@ int CAESObject::forceStopCharging() {
 
 int CAESObject::startDischarging() {
     valve1.open();
+    pidControl.SetMode(AUTOMATIC);
     state = Discharging;
+    l->WriteToLog(2, "CAES System: startDischarging");
     return 0;
 }
 
 int CAESObject::stopDischarging() {
     valve1.close();
+    pidControl.SetMode(MANUAL);
     state = Off;
+    l->WriteToLog(2, "CAES System: stopDischarging");
     return 0;
 }
 
@@ -92,17 +101,45 @@ int CAESObject::Charge() {
     return 0; // Success
 }
 
+//https://playground.arduino.cc/Code/PIDLibraryRelayOutputExample/
+
 int CAESObject::Discharge() {
-    int voltage = vSensor.getValue();
+    voltageIn = vSensor.getValue();
     //int voltage = 0;
     switch (state) {
         case Discharging :
-            if (voltage < voltage_lower_bound) { 
+            //Insert PID control here.
+            if (pidControl.Compute()){
+            l->WriteToLog(2, (String) pidOut);
+            /*
+            if (now - windowStartTime > window_time){
+              windowStartTime += window_time;
+            }
+            if (pidOut > now - windowStartTime){
+              valve1.open();
+            } else {
+              valve1.close();
+            }
+            */
+            if (pidOut > 20){
+              valve1.open();
+            } else if (pidOut < -20) {
+              valve1.close();
+            } else {
+              valve1.hold();
+            }
+            }
+            
+            
+          
+        
+        /*
+            if (voltageIn < voltage_lower_bound) { 
                 valve1.open();
                 delay(100);
                 valve1.hold();
                 delay(100);
-            } else if (voltage > voltage_upper_bound) { // I used a string so that it is red and we remember to change it
+            } else if (voltageIn > voltage_upper_bound) { // I used a string so that it is red and we remember to change it
                 valve1.close();
                 delay(100);
                 valve1.hold();
@@ -110,6 +147,8 @@ int CAESObject::Discharge() {
             } else {
                 valve1.hold();
             } break;
+            */
+            break;
         case Charging :
             if (stopCharging()==0){
               startDischarging();

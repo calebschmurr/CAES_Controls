@@ -13,8 +13,6 @@ int Log::WriteToLog(int level, const String msg) {
 
     if (debug_level >= level) {
         String s;
-        s = millis();
-        s += ": Level ";
         s += level;
         s += ": ";
         s += msg;
