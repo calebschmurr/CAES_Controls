@@ -14,8 +14,8 @@ CAESObject::CAESObject() :
     cycleTime = 0;
     state = Off;
     pidControl.SetOutputLimits(-100, 100);
-    pidControl.SetSampleTime(50);
-    //windowStartTime = millis();
+    pidControl.SetSampleTime(relay_window_time);
+    windowStartTime = millis();
     
 }
 
@@ -105,33 +105,28 @@ int CAESObject::Charge() {
 
 int CAESObject::Discharge() {
     voltageIn = vSensor.getValue();
+    unsigned long now = millis();
     //int voltage = 0;
     switch (state) {
         case Discharging :
             //Insert PID control here.
-            if (pidControl.Compute()){
-            l->WriteToLog(2, (String) pidOut);
-            /*
-            if (now - windowStartTime > window_time){
-              windowStartTime += window_time;
+            if ( pidControl.Compute() ) {
+              l->WriteToLog(2, (String) pidOut);
             }
-            if (pidOut > now - windowStartTime){
-              valve1.open();
-            } else {
-              valve1.close();
+            if (now - windowStartTime > relay_window_time) {
+              windowStartTime = now;
             }
-            */
-            if (pidOut > 20){
-              valve1.open();
-            } else if (pidOut < -20) {
-              valve1.close();
+            if ( abs(pidOut) > now - windowStartTime ) {
+              if (pidOut > 20) {
+                valve1.open();
+              } else if (pidOut < -20) {
+                valve1.close();
+              } else {
+                valve1.hold();
+              }
             } else {
               valve1.hold();
             }
-            }
-            
-            
-          
         
         /*
             if (voltageIn < voltage_lower_bound) { 

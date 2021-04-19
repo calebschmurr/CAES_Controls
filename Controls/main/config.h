@@ -3,7 +3,6 @@
  * This will take the place of a settings file.
  */
 
-
 // System boundary values for conditional controls logic
 #define serial_loop_time 1500 // What is this?
 #define default_mode 0 // 0 = manual, 1 = auto // we should use an enum for this
@@ -13,9 +12,9 @@
 #define max_pressure_auto 90 // Maximum tank pressure in auto mode
 #define min_cycle_time 20000 // Can only change charging states every x seconds
 #define voltage_lower_bound 7.0 // In discharge mode
-#define voltage_upper_bound 20 // In discharge mode
+#define voltage_upper_bound 12 // In discharge mode
 
-#define window_time 500 //For PID controller.
+#define relay_window_time 250 // For PID controller.
 
 // Arduino pins
 #define solid_state_relay_pin 9 // Arduino digital pin for the ssr

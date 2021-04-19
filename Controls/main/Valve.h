@@ -7,7 +7,6 @@
 #pragma once
 #include "log.h"
 
-
 class Valve {
     
 private:
