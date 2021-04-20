@@ -9,17 +9,14 @@ CAESObject::CAESObject() :
     ssRelay1(solid_state_relay_pin), 
     vSensor(voltage_sensor_pin),
     pSensor(pressure_sensor_pin),
-    pidControl(&voltageIn, &pidOut, &voltage_target, 2, 5, 1, DIRECT) 
+    pidControl(&voltageIn, &pidOut, &voltage_target, 5, 2, 10, DIRECT)
 {
     cycleTime = 0;
     state = Off;
-    pidControl.SetOutputLimits(-100, 100);
-    pidControl.SetSampleTime(relay_window_time);
+    pidControl.SetOutputLimits(-pid_window_time, pid_window_time);
+    pidControl.SetSampleTime(pid_window_time/4); // Sampling Frequency
     windowStartTime = millis();
-    
 }
-
-
 
 const int CAESObject::getState() {
     l->WriteToLog(3, "CAES System: reading state.");
@@ -52,7 +49,7 @@ int CAESObject::stopCharging() {
         state = Off;
         return 0;
     }
-    l->WriteToLog(2, "CAES System: stopCharging failed due to cycle time..");
+    l->WriteToLog(2, "CAES System: stopCharging failed due to cycle time.");
     return -1;
 }
 
@@ -66,7 +63,7 @@ int CAESObject::forceStopCharging() {
 
 int CAESObject::startDischarging() {
     valve1.open();
-    pidControl.SetMode(AUTOMATIC);
+    pidControl.SetMode(AUTOMATIC); // Turn PID on
     state = Discharging;
     l->WriteToLog(2, "CAES System: startDischarging");
     return 0;
@@ -74,7 +71,7 @@ int CAESObject::startDischarging() {
 
 int CAESObject::stopDischarging() {
     valve1.close();
-    pidControl.SetMode(MANUAL);
+    pidControl.SetMode(MANUAL); // Turn PID off
     state = Off;
     l->WriteToLog(2, "CAES System: stopDischarging");
     return 0;
@@ -82,7 +79,6 @@ int CAESObject::stopDischarging() {
 
 int CAESObject::Charge() {
    int pressure = pSensor.getValue();
-   //int pressure = 0;
     switch (state) {
         case Discharging :
             stopDischarging();
@@ -101,51 +97,37 @@ int CAESObject::Charge() {
     return 0; // Success
 }
 
-//https://playground.arduino.cc/Code/PIDLibraryRelayOutputExample/
+// https://playground.arduino.cc/Code/PIDLibraryRelayOutputExample/
 
 int CAESObject::Discharge() {
     voltageIn = vSensor.getValue();
+    String logMessage; // = "CAES System: PID output is: ";
     unsigned long now = millis();
-    //int voltage = 0;
     switch (state) {
         case Discharging :
-            //Insert PID control here.
+            // PID Controlled Discharge
             if ( pidControl.Compute() ) {
-              l->WriteToLog(2, (String) pidOut);
+                logMessage = (String) pidOut;
+                l->WriteToLog(1, logMessage);
+                //logMessage = "CAES System: PID output is: ";
             }
-            if (now - windowStartTime > relay_window_time) {
-              windowStartTime = now;
+            if (now - windowStartTime > pid_window_time) {
+                windowStartTime = now;
             }
             if ( abs(pidOut) > now - windowStartTime ) {
-              if (pidOut > 20) {
-                valve1.open();
-              } else if (pidOut < -20) {
-                valve1.close();
-              } else {
-                valve1.hold();
-              }
+                if ( pidOut > 0 ) {
+                    valve1.open();
+                } else if ( pidOut < 0 ) {
+                    valve1.close();
+                } else {
+                    valve1.hold();
+                }
             } else {
-              valve1.hold();
+                valve1.hold();
             }
-        
-        /*
-            if (voltageIn < voltage_lower_bound) { 
-                valve1.open();
-                delay(100);
-                valve1.hold();
-                delay(100);
-            } else if (voltageIn > voltage_upper_bound) { // I used a string so that it is red and we remember to change it
-                valve1.close();
-                delay(100);
-                valve1.hold();
-                delay(100);
-            } else {
-                valve1.hold();
-            } break;
-            */
             break;
         case Charging :
-            if (stopCharging()==0){
+            if (stopCharging() == 0) {
               startDischarging();
             }
             break;
@@ -162,7 +144,8 @@ int CAESObject::TurnOff() {
             stopDischarging();
             break;
         case Charging :
-            stopCharging();
+            stopCharging(); 
+            // Should add code to check for cycle time failure and not return 0 in that case
             break;
     }
     return 0; // Success

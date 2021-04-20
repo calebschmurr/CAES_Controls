@@ -10,6 +10,6 @@ PressureSensor::PressureSensor(const int pinVal) {
 
 float PressureSensor::getValue() {
     float value = (analogRead(pin)*multiplier) - baseVal;
-    l->WriteToLog(2, (String) value);
+    l->WriteToLog(3, (String) value);
     return value;
 }

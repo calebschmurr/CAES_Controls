@@ -17,20 +17,20 @@ Valve::Valve(const int openPinVal, const int closePinVal) {
 int Valve::open() {
     digitalWrite(openPin, LOW);
     digitalWrite(closePin, HIGH);
-    l->WriteToLog(2, "Valve: set to open.");
+    l->WriteToLog(3, "Valve: set to open.");
     return 0; // Success
 }
 
 int Valve::close() {
     digitalWrite(openPin, HIGH);
     digitalWrite(closePin, LOW);
-    l->WriteToLog(2, "Valve: set to close.");
+    l->WriteToLog(3, "Valve: set to close.");
     return 0; // Success
 }
 
 int Valve::hold() {
     digitalWrite(openPin, HIGH);
     digitalWrite(closePin, HIGH);
-    l->WriteToLog(2, "Valve: set to hold.");
+    l->WriteToLog(3, "Valve: set to hold.");
     return 0; // Success
 }

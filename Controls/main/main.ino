@@ -24,8 +24,6 @@ enum masterOnOff {MasterOff, MasterOn} systemMasterOnOff;
 void setup() {
     // Start logging
     Serial.begin(9600);
-    //pinMode(LED_BUILTIN, OUTPUT);
-    //digitalWrite(LED_BUILTIN, LOW);
     Serial.println("Serial_Start");
     l.setStream(&Serial);
     l.WriteToLog(1, "Log_Start");
@@ -41,18 +39,17 @@ void setup() {
 
 }
 
-void loop() { 
-    // Check and log sensor values
+void loop() {
     updateSwitches();
     l.WriteToLog(3, "Main: Reading Switch Values");
 
-  if (systemMasterOnOff == MasterOn){
+    if (systemMasterOnOff == MasterOn) { // TODO: fix indentation
     
-    if (systemMode == Auto) { // Auto Mode
+    if (systemMode == Auto) {
 
         l.WriteToLog(3, "Main: Mode switch is set to Auto.");
 
-        if (caesSystem.getState() == Charging) { // Charging State
+        if (caesSystem.getState() == Charging) {
             
             l.WriteToLog(3, "Main.Auto: System state is Charging.");
 
@@ -85,20 +82,19 @@ void loop() {
         
         if (manualState == Charging) {
             l.WriteToLog(3, "Main.Manual: Manual state switch is set to Charge.");
-            l.WriteToLog(2, "Main.Manual: Sending charge command to system.");
+            l.WriteToLog(3, "Main.Manual: Sending charge command to system.");
             caesSystem.Charge();
         } else if (manualState == Discharging) {
             l.WriteToLog(3, "Main.Manual: Manual state switch is set to Discharge.");
-            l.WriteToLog(2, "Main.Manual: Sending discharge command to system.");
+            l.WriteToLog(3, "Main.Manual: Sending discharge command to system.");
             caesSystem.Discharge();
         } else {
             l.WriteToLog(3, "Main.Manual: Manual state switch is set to Off.");
-            l.WriteToLog(2, "Main.Manual: Sending off command to system.");
+            l.WriteToLog(3, "Main.Manual: Sending off command to system.");
             caesSystem.TurnOff();
         }
     }
-  } else {
-  //If the master switch is off:
+  } else { // Master switch is off:
   caesSystem.ForceOff();
   }
 }
@@ -115,15 +111,16 @@ void updateSwitches() {
     }
 
     // TODO: We should probably check for the possibility that 
-    // both switches are high and raise an exception
+    // both switches are high and raise an exception, 
+    // or we could just default to Off in that case
     if (digitalRead(manual_switch_charge_pin) == LOW) {
-        l.WriteToLog(2, "Main: State switch is set to Charging");
+        l.WriteToLog(3, "Main: State switch is set to Charging");
         manualState = Charging;
     } else if (digitalRead(manual_switch_discharge_pin) == LOW) {
-        l.WriteToLog(2, "Main: State switch is set to Discharging");
+        l.WriteToLog(3, "Main: State switch is set to Discharging");
         manualState = Discharging;
     } else {
-        l.WriteToLog(2, "Main: State switch is set to Off");
+        l.WriteToLog(3, "Main: State switch is set to Off");
         manualState = Off;
     }
 

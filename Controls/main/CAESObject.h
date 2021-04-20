@@ -22,9 +22,9 @@ class CAESObject {
 
     private:
         long cycleTime;
-        Valve valve1; //Initializer Works
+        Valve valve1;
         SSRelay ssRelay1;
-        CurrentSensor iSensor; //Initializer Works
+        CurrentSensor iSensor;
         VoltageSensor vSensor;
         PressureSensor pSensor;
         States state;
@@ -33,12 +33,12 @@ class CAESObject {
         PID pidControl;
         double voltageIn;
         double pidOut;
-        double voltage_target = 10.0;
+        double voltage_target = pid_voltage_target;
         unsigned long windowStartTime;
 
         int startCharging();
         int stopCharging();
-        int forceStopCharging(); //Only to be called when master switch is flipped.
+        int forceStopCharging(); // Only to be called when master switch is flipped.
         int startDischarging();
         int stopDischarging();
 

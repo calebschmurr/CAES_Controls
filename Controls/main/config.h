@@ -11,10 +11,13 @@
 #define min_pressure_auto 60 // Minimum tank pressure in auto mode
 #define max_pressure_auto 90 // Maximum tank pressure in auto mode
 #define min_cycle_time 20000 // Can only change charging states every x seconds
+
+// These are not being used in code
 #define voltage_lower_bound 7.0 // In discharge mode
 #define voltage_upper_bound 12 // In discharge mode
 
-#define relay_window_time 250 // For PID controller.
+#define pid_window_time 300 // For PID controller
+#define pid_voltage_target 10.0 // For PID controller
 
 // Arduino pins
 #define solid_state_relay_pin 9 // Arduino digital pin for the ssr
