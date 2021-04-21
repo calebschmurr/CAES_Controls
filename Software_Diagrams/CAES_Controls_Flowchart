@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-04-19T17:50:30.528Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36" etag="6_7CNjqi_SSrsO6G6I4U" version="14.6.0" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2021-04-21T19:33:15.502Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36" etag="R6Lg9Zz1e5dzbK8JoS0y" version="14.6.5" type="github" pages="3">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="CAESObject_Class_Flowchart">
-    <mxGraphModel dx="2130" dy="967" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1038" dy="548" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -368,7 +368,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="72QfJe5bYpR5y07a5OMH" name="Main_Loop_Flowchart">
-    <mxGraphModel dx="2676" dy="829" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1888" dy="548" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="CWvUaUW_ndaUqIzaeWzM-0" />
         <mxCell id="CWvUaUW_ndaUqIzaeWzM-1" parent="CWvUaUW_ndaUqIzaeWzM-0" />
@@ -416,7 +416,7 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="VBiYIOz1DCihBtpAZn0U-5" value="If Charging = True" style="rhombus;whiteSpace=wrap;html=1;strokeWidth=2;" parent="CWvUaUW_ndaUqIzaeWzM-1" vertex="1">
+        <mxCell id="VBiYIOz1DCihBtpAZn0U-5" value="If Charging&lt;br&gt;&amp;nbsp;= True" style="rhombus;whiteSpace=wrap;html=1;strokeWidth=2;" parent="CWvUaUW_ndaUqIzaeWzM-1" vertex="1">
           <mxGeometry x="760" y="300" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="VBiYIOz1DCihBtpAZn0U-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="CWvUaUW_ndaUqIzaeWzM-1" source="VBiYIOz1DCihBtpAZn0U-7" target="VBiYIOz1DCihBtpAZn0U-33" edge="1">
