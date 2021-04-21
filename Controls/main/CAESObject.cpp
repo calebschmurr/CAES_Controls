@@ -9,13 +9,13 @@ CAESObject::CAESObject() :
     ssRelay1(solid_state_relay_pin), 
     vSensor(voltage_sensor_pin),
     pSensor(pressure_sensor_pin),
-    pidControl(&voltageIn, &pidOut, &voltage_target, 5, 2, 10, DIRECT)
-{
+    pidControl(&voltageIn, &voltage_target, &pidOut, -pid_window_time, pid_window_time, 5, 2, 10) {
     cycleTime = 0;
     state = Off;
-    pidControl.SetOutputLimits(-pid_window_time, pid_window_time);
-    pidControl.SetSampleTime(pid_window_time/4); // Sampling Frequency
+    //pidControl.setBangBang(8); //If the voltage is off by 6, then set to max or min.
+    pidControl.setTimeStep(pid_window_time/4); // Sampling Frequency
     windowStartTime = millis();
+    
 }
 
 const int CAESObject::getState() {
@@ -63,7 +63,7 @@ int CAESObject::forceStopCharging() {
 
 int CAESObject::startDischarging() {
     valve1.open();
-    pidControl.SetMode(AUTOMATIC); // Turn PID on
+    pidControl.stop(); // Turn PID on
     state = Discharging;
     l->WriteToLog(2, "CAES System: startDischarging");
     return 0;
@@ -71,7 +71,7 @@ int CAESObject::startDischarging() {
 
 int CAESObject::stopDischarging() {
     valve1.close();
-    pidControl.SetMode(MANUAL); // Turn PID off
+    pidControl.reset(); // Turn PID off
     state = Off;
     l->WriteToLog(2, "CAES System: stopDischarging");
     return 0;
@@ -106,10 +106,9 @@ int CAESObject::Discharge() {
     switch (state) {
         case Discharging :
             // PID Controlled Discharge
-            if ( pidControl.Compute() ) {
+            if ( pidControl.run() ) {
                 logMessage = (String) pidOut;
                 l->WriteToLog(1, logMessage);
-                //logMessage = "CAES System: PID output is: ";
             }
             if (now - windowStartTime > pid_window_time) {
                 windowStartTime = now;

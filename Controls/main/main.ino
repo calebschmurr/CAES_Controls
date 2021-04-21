@@ -4,17 +4,14 @@
 * Calvin 2021 Senior Design Team 11
 */
 
-
 // Custom classes
 #include "config.h"
 #include "CAESObject.h"
 #include "log.h"
 
-
 // Declare and initialize variables
 Log l;
 CAESObject caesSystem; 
-
 
 Modes systemMode;
 States manualState;
@@ -40,6 +37,7 @@ void setup() {
 }
 
 void loop() {
+    l.WriteToLog(2, "Loop Started.");
     updateSwitches();
     l.WriteToLog(3, "Main: Reading Switch Values");
 
@@ -48,9 +46,9 @@ void loop() {
     if (systemMode == Auto) {
 
         l.WriteToLog(3, "Main: Mode switch is set to Auto.");
-
+        
         if (caesSystem.getState() == Charging) {
-            
+          
             l.WriteToLog(3, "Main.Auto: System state is Charging.");
 
             if (caesSystem.getPressure() < max_pressure_auto) {

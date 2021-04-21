@@ -11,7 +11,7 @@
 #include "Valve.h"
 #include "SSRelay.h"
 #include "config.h"
-#include <PID_v1.h>
+#include <AutoPID.h>
 
 
 // Define States and Modes as global enumerations
@@ -30,7 +30,7 @@ class CAESObject {
         States state;
         Modes mode;
         Log * l;
-        PID pidControl;
+        AutoPID pidControl;
         double voltageIn;
         double pidOut;
         double voltage_target = pid_voltage_target;
