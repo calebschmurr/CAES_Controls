@@ -50,30 +50,32 @@ void loop() {
           
             l.WriteToLog(3, "Main.Auto: System state is Charging.");
 
-            if (caesSystem.getPressure() < max_pressure_auto) {
-                l.WriteToLog(2, "Main.Auto: Sending charge command to system.");
+            if (caesSystem.getPressure() < max_pressure_auto - 2) {
+                l.WriteToLog(1, "Main.Auto: Sending charge command to system.");
                  caesSystem.Charge();
             } else {
-                l.WriteToLog(2, "Main.Auto: Sending discharge command to system.");
+                l.WriteToLog(1, "Main.Auto: Sending discharge command to system.");
+                 caesSystem.Discharge();
+            }
+        } else if (caesSystem.getState() == Discharging) {
+            if (caesSystem.getPressure() < min_pressure_auto) {
+                l.WriteToLog(1, "Main.Auto: Sending charge command to system.");
+                 caesSystem.Charge();
+            } else {
+                l.WriteToLog(1, "Main.Auto: Sending discharge command to system.");
                  caesSystem.Discharge();
             }
         } else {
-            if (caesSystem.getState() == Discharging) {
-                if (caesSystem.getPressure() < min_pressure_auto) {
-                    l.WriteToLog(2, "Main.Auto: Sending charge command to system.");
-                     caesSystem.Charge();
-                } else {
-                    l.WriteToLog(2, "Main.Auto: Sending discharge command to system.");
-                     caesSystem.Discharge();
-                }
+            l.WriteToLog(3, "Main.Auto: System state is Off.");
+            // Default Behavior - For now it is Discharge()
+            if (caesSystem.getPressure() < max_pressure_auto) {
+                l.WriteToLog(1, "Main.Auto: Sending charge command to system.");
+                caesSystem.Charge();
             } else {
-                l.WriteToLog(3, "Main.Auto: System state is Off.");
-                // Default Behavior - For now it is Discharge()
-                l.WriteToLog(2, "Main.Auto: Sending discharge command to system.");
+                l.WriteToLog(1, "Main.Auto: Sending discharge command to system.");
                 caesSystem.Discharge();
             }
         }
-
     } else { // Manual Mode
         l.WriteToLog(3, "Main: Mode switch is set to Manual.");
         

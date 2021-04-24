@@ -7,9 +7,9 @@
 #define serial_loop_time 1500 // What is this?
 #define default_mode 0 // 0 = manual, 1 = auto // we should use an enum for this
 #define min_pressure_manual 60 // Minimum tank pressure in manual mode
-#define max_pressure_manual 90 // Maximum tank pressure in manual mode
-#define min_pressure_auto 60 // Minimum tank pressure in auto mode
-#define max_pressure_auto 90 // Maximum tank pressure in auto mode
+#define max_pressure_manual 110 // Maximum tank pressure in manual mode
+#define min_pressure_auto 40 // Minimum tank pressure in auto mode
+#define max_pressure_auto 100 // Maximum tank pressure in auto mode
 #define min_cycle_time 20000 // Can only change charging states every x seconds
 
 // These are not being used in code
@@ -17,7 +17,7 @@
 #define voltage_upper_bound 12 // In discharge mode
 
 #define pid_window_time 100 // For PID controller
-#define pid_voltage_target 14.0 // For PID controller
+#define pid_voltage_target 10.0 // For PID controller
 
 // Arduino pins
 #define solid_state_relay_pin 9 // Arduino digital pin for the ssr
@@ -33,4 +33,4 @@
 #define manual_switch_charge_pin 13 // Arduino digital pin for mode switch (charge)
 
 // Debugging level (determines which debugging statements actually end up in the log)
-#define debug_level 2 //Debug level list: 0 - none. 1 - error statements. 2 - important statements. 3 - verbose.  Everything out.
+#define debug_level 1 //Debug level list: 0 - none. 1 - error statements. 2 - important statements. 3 - verbose.  Everything out.

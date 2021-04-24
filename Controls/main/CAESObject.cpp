@@ -9,7 +9,7 @@ CAESObject::CAESObject() :
     ssRelay1(solid_state_relay_pin), 
     vSensor(voltage_sensor_pin),
     pSensor(pressure_sensor_pin),
-    pidControl(&voltageIn, &voltage_target, &pidOut, -pid_window_time, pid_window_time, 4, 1, 50) {
+    pidControl(&voltageIn, &voltage_target, &pidOut, -pid_window_time, pid_window_time, 0.6, 0.2, 4.5) {
     cycleTime = 0;
     state = Off;
     //pidControl.setBangBang(8); //If the voltage is off by 6, then set to max or min.
@@ -26,7 +26,7 @@ const int CAESObject::getState() {
 int CAESObject::getPressure() {
     l->WriteToLog(3, "CAES System: reading pressure sensor.");
     return pSensor.getValue();
-    return 80;
+    //return 80;
 }
 
 int CAESObject::startCharging() {
@@ -63,12 +63,30 @@ int CAESObject::forceStopCharging() {
 
 int CAESObject::startDischarging() {
     valve1.open();
-    pidControl.stop(); // Turn PID on
     //Open the valve for 5 ms, delay 2 ms. Starter.
-    delay(800);
+    /*
+    int pressure = pSensor.getValue();
+    if (pressure < 50){
+      pressure = 50;
+    }
+    delay(40000/pressure);
     valve1.hold();
-    delay(1600);
+    delay(1000);
+    */
+
     
+    while(vSensor.getValue() < 2){
+      delay(30);
+      valve1.hold();
+      delay(100);
+      valve1.open();
+    }
+    valve1.hold();
+    delay(500);
+    
+    pidControl.reset();
+    pidControl.stop(); // Turn PID on
+
     state = Discharging;
     l->WriteToLog(2, "CAES System: startDischarging");
     return 0;
@@ -113,7 +131,7 @@ int CAESObject::Discharge() {
             // PID Controlled Discharge
             if ( pidControl.run() ) {
                 logMessage = (String) pidOut;
-                l->WriteToLog(1, logMessage);
+                l->WriteToLog(2, logMessage);
             }
             if (now - windowStartTime > pid_window_time) {
                 windowStartTime = now;
