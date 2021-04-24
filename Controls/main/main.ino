@@ -37,7 +37,6 @@ void setup() {
 }
 
 void loop() {
-    l.WriteToLog(2, "Loop Started.");
     updateSwitches();
     l.WriteToLog(3, "Main: Reading Switch Values");
 

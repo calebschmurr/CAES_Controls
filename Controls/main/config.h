@@ -16,8 +16,8 @@
 #define voltage_lower_bound 7.0 // In discharge mode
 #define voltage_upper_bound 12 // In discharge mode
 
-#define pid_window_time 300 // For PID controller
-#define pid_voltage_target 10.0 // For PID controller
+#define pid_window_time 100 // For PID controller
+#define pid_voltage_target 14.0 // For PID controller
 
 // Arduino pins
 #define solid_state_relay_pin 9 // Arduino digital pin for the ssr
