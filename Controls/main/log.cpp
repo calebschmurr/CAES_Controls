@@ -3,26 +3,17 @@
 #include "log.h"
 #include <string.h>
 
-Log::Log() {
-  // TODO: anything here?
-  // Should the log tell us when it is properly initialized?
-  
-}
+Log::Log() {}
 
-int Log::WriteToLog(int level, const String msg) {
-
+int Log::WriteToLog(int level, String msg) {
     if (debug_level >= level) {
         String s;
         s += level;
         s += ": ";
         s += msg;
-        _StreamRef->println(s);
+        Serial.println(s);
+        // Here is a line of debugging code for when memory is low and logging messages don't print. When that is happening, this still prints.
+        //Serial.println("^ Should be a logging message here...");
     }
-    //Serial.printline(name.c_str()+" "+msg.c_str());
     return 0;
-}
-
-// Is this function actually needed? When would we use it?
-bool Log::closeLog() {
-    Serial.end();
 }

@@ -50,5 +50,6 @@ class CAESObject {
         void ForceOff();
         const int getState();
         int getPressure();
-        void setLog(Log *_streamObject){ l = _streamObject; l->WriteToLog(2, "stream_test"); valve1.setLog(_streamObject); iSensor.setLog(_streamObject); ssRelay1.setLog(_streamObject); pSensor.setLog(_streamObject);}
+        void setLog(Log * logPtr) {l = logPtr; l->WriteToLog(1, "CAESObject logging initiated."); valve1.setLog(logPtr); ssRelay1.setLog(logPtr); iSensor.setLog(logPtr); vSensor.setLog(logPtr); pSensor.setLog(logPtr);
+}
 };

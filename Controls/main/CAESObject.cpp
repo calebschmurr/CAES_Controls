@@ -12,10 +12,8 @@ CAESObject::CAESObject() :
     pidControl(&voltageIn, &voltage_target, &pidOut, -pid_window_time, pid_window_time, 0.6, 0.2, 4.5) {
     cycleTime = 0;
     state = Off;
-    //pidControl.setBangBang(8); //If the voltage is off by 6, then set to max or min.
     pidControl.setTimeStep(pid_window_time/4); // Sampling Frequency
     windowStartTime = millis();
-    
 }
 
 const int CAESObject::getState() {
@@ -26,7 +24,6 @@ const int CAESObject::getState() {
 int CAESObject::getPressure() {
     l->WriteToLog(3, "CAES System: reading pressure sensor.");
     return pSensor.getValue();
-    //return 80;
 }
 
 int CAESObject::startCharging() {
@@ -37,7 +34,7 @@ int CAESObject::startCharging() {
         state = Charging;
         return 0;
     }
-    l->WriteToLog(2, "CAES System: startCharging failed due to cycle time.");
+    l->WriteToLog(1, "CAES System: Failed to start charging due to cycle time.");
     return -1;
 }
 
@@ -49,12 +46,12 @@ int CAESObject::stopCharging() {
         state = Off;
         return 0;
     }
-    l->WriteToLog(2, "CAES System: stopCharging failed due to cycle time.");
+    l->WriteToLog(1, "CAES System: Failed to stop charging due to cycle time.");
     return -1;
 }
 
 int CAESObject::forceStopCharging() {
-  l->WriteToLog(2, "CAES System: forceStopCharging - charging system forced off.");
+  l->WriteToLog(1, "CAES System: Stopped charging by force.");
   ssRelay1.off();
   cycleTime = millis() + min_cycle_time;
   state = Off;
@@ -62,7 +59,7 @@ int CAESObject::forceStopCharging() {
 }
 
 int CAESObject::startDischarging() {
-    valve1.open();
+    // valve1.open();
     //Open the valve for 5 ms, delay 2 ms. Starter.
     /*
     int pressure = pSensor.getValue();
@@ -74,29 +71,27 @@ int CAESObject::startDischarging() {
     delay(1000);
     */
 
-    
-    while(vSensor.getValue() < 2){
-      delay(30);
-      valve1.hold();
-      delay(100);
-      valve1.open();
+    while(vSensor.getValue() < 2) {
+        delay(30);
+        valve1.hold();
+        delay(100);
+        valve1.open();
     }
     valve1.hold();
     delay(500);
     
-    pidControl.reset();
-    pidControl.stop(); // Turn PID on
+    pidControl.reset(); // Resets internal PID calculation values (integral, derivative)
 
     state = Discharging;
-    l->WriteToLog(2, "CAES System: startDischarging");
+    l->WriteToLog(1, "CAES System: Started Discharging");
     return 0;
 }
 
 int CAESObject::stopDischarging() {
     valve1.close();
-    pidControl.reset(); // Turn PID off
+    pidControl.stop(); // Stops PID calculations and resets internal PID calculation values (integral, derivative)
     state = Off;
-    l->WriteToLog(2, "CAES System: stopDischarging");
+    l->WriteToLog(1, "CAES System: Stopped Discharging");
     return 0;
 }
 
@@ -120,21 +115,16 @@ int CAESObject::Charge() {
     return 0; // Success
 }
 
-// https://playground.arduino.cc/Code/PIDLibraryRelayOutputExample/
-
 int CAESObject::Discharge() {
     voltageIn = vSensor.getValue();
-    String logMessage; // = "CAES System: PID output is: ";
     unsigned long now = millis();
     switch (state) {
         case Discharging :
-            // PID Controlled Discharge
-            if ( pidControl.run() ) {
-                logMessage = (String) pidOut;
-                l->WriteToLog(2, logMessage);
-            }
+            pidControl.run(); // Automatically runs PID calculations. Will only actually perform calculations when time interval has passed.
             if (now - windowStartTime > pid_window_time) {
                 windowStartTime = now;
+                l->WriteToLog(3, "CAES System: PID output is:");
+                l->WriteToLog(3, (String) pidOut);
             }
             if ( abs(pidOut) > now - windowStartTime ) {
                 if ( pidOut > 0 ) {

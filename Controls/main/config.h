@@ -28,7 +28,6 @@
 #define current_sensor_pin A4 // Arduino analog pin for the current sensor
 #define mode_switch_pin 8 // High = Auto, Low = manual
 #define master_on_off_switch_pin 11 // Arduino digital pin for master on/off system overide
-    // If both manual switch pins are low, mode is "Off"
 #define manual_switch_discharge_pin 12 // Arduino digital pin for mode switch (discharge)
 #define manual_switch_charge_pin 13 // Arduino digital pin for mode switch (charge)
 

@@ -20,6 +20,6 @@ public:
     int open();
     int close();
     int hold();
-    void setLog(Log *_streamObject){ l = _streamObject; l->WriteToLog(2, "Valve 1 Initialized."); }
+    void setLog(Log * logPtr){ l = logPtr; l->WriteToLog(1, "Valve logging initiated."); }
 
 };

@@ -15,12 +15,11 @@ using namespace std;
 class Log {
 
 private:
-    Stream* _StreamRef;
+    //Stream* _StreamRef;
 
 public:
     Log(); 
-    void setStream(Stream* streamObject) { _StreamRef = streamObject; }
-    int WriteToLog(int level, String msg);  // Return  -1 if failed.
-    bool closeLog();
+    //void setStream(Stream* streamObject) { _StreamRef = streamObject; }
+    int WriteToLog(int level, String msg);
 
 };
