@@ -9,7 +9,7 @@ CAESObject::CAESObject() :
     ssRelay1(solid_state_relay_pin), 
     vSensor(voltage_sensor_pin),
     pSensor(pressure_sensor_pin),
-    pidControl(&voltageIn, &voltage_target, &pidOut, -pid_window_time, pid_window_time, 0.6, 0.2, 4.5) {
+    pidControl(&voltageIn, &voltage_target, &pidOut, -pid_window_time, pid_window_time, pid_p_val, pid_i_val, pid_d_val) {
     cycleTime = 0;
     state = Off;
     pidControl.setTimeStep(pid_window_time/4); // Sampling Frequency
@@ -59,18 +59,8 @@ int CAESObject::forceStopCharging() {
 }
 
 int CAESObject::startDischarging() {
-    // valve1.open();
-    //Open the valve for 5 ms, delay 2 ms. Starter.
-    /*
-    int pressure = pSensor.getValue();
-    if (pressure < 50){
-      pressure = 50;
-    }
-    delay(40000/pressure);
-    valve1.hold();
-    delay(1000);
-    */
-
+     
+    valve1.open();
     while(vSensor.getValue() < 2) {
         delay(30);
         valve1.hold();
@@ -138,6 +128,7 @@ int CAESObject::Discharge() {
                 valve1.hold();
             }
             break;
+            
         case Charging :
             if (stopCharging() == 0) {
               startDischarging();

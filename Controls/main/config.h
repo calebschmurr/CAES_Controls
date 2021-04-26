@@ -6,10 +6,10 @@
 // System boundary values for conditional controls logic
 #define serial_loop_time 1500 // What is this?
 #define default_mode 0 // 0 = manual, 1 = auto // we should use an enum for this
-#define min_pressure_manual 60 // Minimum tank pressure in manual mode
+#define min_pressure_manual  // Minimum tank pressure in manual mode
 #define max_pressure_manual 110 // Maximum tank pressure in manual mode
-#define min_pressure_auto 40 // Minimum tank pressure in auto mode
-#define max_pressure_auto 100 // Maximum tank pressure in auto mode
+#define min_pressure_auto 25 // Minimum tank pressure in auto mode
+#define max_pressure_auto 105 // Maximum tank pressure in auto mode
 #define min_cycle_time 20000 // Can only change charging states every x seconds
 
 // These are not being used in code
@@ -18,6 +18,10 @@
 
 #define pid_window_time 100 // For PID controller
 #define pid_voltage_target 10.0 // For PID controller
+
+#define pid_p_val 0.6
+#define pid_i_val 0.21
+#define pid_d_val 4.7
 
 // Arduino pins
 #define solid_state_relay_pin 9 // Arduino digital pin for the ssr
