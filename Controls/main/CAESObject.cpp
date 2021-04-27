@@ -14,7 +14,7 @@ CAESObject::CAESObject() :
     state = Off;
     pidControl.setTimeStep(pid_window_time/4); // Sampling Frequency
     //Set PID BangBang to not allow past a max voltage defined in config.h.
-    pidControl.setBangBang(0.0, pid_max_voltage);
+    pidControl.setBangBang(0, pid_max_voltage);
     
     windowStartTime = millis();
 }
@@ -64,14 +64,14 @@ int CAESObject::forceStopCharging() {
 int CAESObject::startDischarging() {
      
     valve1.open();
-    while(vSensor.getValue() < 2) {
+    while(vSensor.getValue() < 0.5) {
         delay(30);
         valve1.hold();
         delay(100);
         valve1.open();
     }
     valve1.hold();
-    delay(500);
+    delay(100);//Previously 500.  
     
     pidControl.reset(); // Resets internal PID calculation values (integral, derivative)
 
