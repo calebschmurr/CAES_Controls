@@ -13,6 +13,9 @@ CAESObject::CAESObject() :
     cycleTime = 0;
     state = Off;
     pidControl.setTimeStep(pid_window_time/4); // Sampling Frequency
+    //Set PID BangBang to not allow past a max voltage defined in config.h.
+    pidControl.setBangBang(0.0, pid_max_voltage);
+    
     windowStartTime = millis();
 }
 
