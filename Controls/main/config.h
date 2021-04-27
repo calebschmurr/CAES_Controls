@@ -8,7 +8,7 @@
 #define default_mode 0 // 0 = manual, 1 = auto // we should use an enum for this
 #define min_pressure_manual  // Minimum tank pressure in manual mode
 #define max_pressure_manual 110 // Maximum tank pressure in manual mode
-#define min_pressure_auto 25 // Minimum tank pressure in auto mode
+#define min_pressure_auto 20 // Minimum tank pressure in auto mode
 #define max_pressure_auto 110 // Maximum tank pressure in auto mode
 #define min_cycle_time 10000 // Can only change charging states every x seconds
 
@@ -17,7 +17,7 @@
 #define voltage_upper_bound 12 // In discharge mode
 
 #define pid_window_time 100 // For PID controller
-#define pid_voltage_target 10.0 // For PID controller
+#define pid_voltage_target 11 // For PID controller
 #define pid_max_voltage 14.0 //For PID BangBang control
 
 #define pid_p_val 0.6
